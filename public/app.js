@@ -2,13 +2,23 @@ const dataDogs = [];
 const dataCats = [];
 
 
+
+	function updateType() {
+		$.ajax({
+			method: "PUT",
+			url: "http://localhost:8080/animal/" + 1,
+			data: {'type': 'cat'}
+			// req.body
+		}).then(console.log("updated"));
+	}
+
 // create Characteristics Table
-function createTable(data, min, max) {
+const createTable = (data, min, max) => {
 
   if(!min && !max){
     min = 0;
     // max = data.length;
-    max = 100;
+    max = 50;
     console.log(min, max);
   }
 
@@ -45,18 +55,18 @@ function createTable(data, min, max) {
 </tr>`);
   }
 }
-
 // make ajax call when zoom event happens to reRender Table
-function renderTable(min, max) {
+const renderTable = (min, max) => {
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
     createTable(data, min, max);
   });
 }
 
+
 // create initial chart and table
 $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
 
-  createTable(data, 0, 100);
+  createTable(data, 0, 50);
 
   Highcharts.chart('container', {
     chart: {
