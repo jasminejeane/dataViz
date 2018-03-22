@@ -24,16 +24,24 @@
 				method: "GET"
 			}).then(function(data) {
 
-				var claws = {};
+				var dogClaws = {},
+            catClaws = {};
 				for (i = 0; i < data.length; i++) {
 
 					if (data[i].type === "dog") {
-						if (claws[data[i].claws] === undefined) {
-							claws[data[i].claws] = 1;
-						} else if (claws[data[i].claws]) {
-							claws[data[i].claws]++;
+						if (dogClaws[data[i].claws] === undefined) {
+							dogClaws[data[i].claws] = 1;
+						} else if (dogClaws[data[i].claws]) {
+							dogClaws[data[i].claws]++;
 						}
 					}
+          if (data[i].type === "cat") {
+            if (catClaws[data[i].claws] === undefined) {
+              catClaws[data[i].claws] = 1;
+            } else if (catClaws[data[i].claws]) {
+              catClaws[data[i].claws]++;
+            }
+          }
 				}
 
 				Highcharts.chart('container', {
@@ -50,14 +58,14 @@
 						series: {
 							dataLabels: {
 								enabled: true,
-								format: '{point.name}: {point.y:.1f}%'
+								format: '{point.name}: {point.y:f}%'
 							}
 						}
 					},
 
 					tooltip: {
 						headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:f}%</b> of total<br/>'
 					},
 
 					"series": [{
@@ -65,12 +73,12 @@
 						"colorByPoint": true,
 						"data": [{
 								"name": "Sharp",
-								"y": 1273,
+								"y": catClaws.sharp + dogClaws.sharp,
 								"drilldown": "sharp"
 							},
 							{
 								"name": "Dull",
-								"y": 1327,
+								"y": catClaws.dull + dogClaws.dull,
 								"drilldown": "dull"
 							}
 						]
@@ -82,11 +90,11 @@
 								"data": [
 									[
 										"dog",
-										claws.sharp
+										dogClaws.sharp
 									],
 									[
 										"cat",
-										643
+										catClaws.sharp
 									],
 
 								]
@@ -97,11 +105,11 @@
 								"data": [
 									[
 										"dog",
-										claws.dull
+										dogClaws.dull
 									],
 									[
 										"cat",
-										692
+										catClaws.sharp
 									],
 								]
 							}

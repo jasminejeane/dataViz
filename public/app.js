@@ -126,7 +126,7 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
           }
         },
         tooltip: {
-          headerFormat: '<b>{series.name}</b><br>',
+          headerFormat: '<b>{series.data}</b><br>',
           pointFormat: '{point.x} , {point.y} '
         }
       }
@@ -145,3 +145,7 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
     ]
   });
 });
+
+// for rendering outside of mulitple ajax calls
+// see color-combo in high-charts-1
+// $('#container').highcharts(json);

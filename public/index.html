@@ -16,7 +16,12 @@
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/drilldown.js"></script>
   <script src="app.js"></script>
+  <script src="pie.js">
+
+  </script>
 </head>
 
 <body>
@@ -24,25 +29,29 @@
   <div class="container">
 
     <div class="row pie-charts">
-      <div class="col-3">
-        <div class="pie" style="background: #ffff0042">
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="pie" style="background: #e839e84d">
+    <div class="col-3">
+      <div id="claws">
 
-        </div>
       </div>
-      <div class="col-3">
-        <div class="pie" style="background: #74ca2666">
+      <!-- <div class="pie" style="background: #ffff0042">
+      </div> -->
+    </div>
+    <div class="col-3">
+      <div class="pie" style="background: #e839e84d">
 
-        </div>
       </div>
-      <div class="col-3">
-        <div class="pie" style="background: #323a6352">
+    </div>
+    <div class="col-3">
+      <div class="pie" style="background: #74ca2666">
 
-        </div>
       </div>
+    </div>
+    <div class="col-3">
+      <div class="pie" style="background: #323a6352">
+
+      </div>
+    </div>
+  </div>
     </div>
 
     <div id="container">

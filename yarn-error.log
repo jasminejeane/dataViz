@@ -1,0 +1,32 @@
+Arguments: 
+  /Users/jasminejmartin/.nvm/versions/node/v8.10.0/bin/node /Users/jasminejmartin/.nvm/versions/node/v8.10.0/bin/yarn start
+
+PATH: 
+  /Users/jasminejmartin/.nvm/versions/node/v8.10.0/bin:/Users/jasminejmartin/.rvm/gems/ruby-2.3.3/bin:/Users/jasminejmartin/.rvm/gems/ruby-2.3.3@global/bin:/Users/jasminejmartin/.rvm/rubies/ruby-2.3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/jasminejmartin/.rvm/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.10.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Couldn't find a package.json file in "/Users/jasminejmartin/Visa/CatzNDogz"
+      at new MessageError (/Users/jasminejmartin/.nvm/versions/node/v8.10.0/lib/node_modules/yarn/lib/cli.js:186:110)
+      at /Users/jasminejmartin/.nvm/versions/node/v8.10.0/lib/node_modules/yarn/lib/cli.js:40048:15
+      at Generator.next (<anonymous>)
+      at step (/Users/jasminejmartin/.nvm/versions/node/v8.10.0/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /Users/jasminejmartin/.nvm/versions/node/v8.10.0/lib/node_modules/yarn/lib/cli.js:109:13
+      at <anonymous>

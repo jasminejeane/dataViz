@@ -15,3 +15,10 @@
 .table-header{
   margin-top: 75px;
 }
+
+#claws .highcharts-button.highcharts-contextbutton{
+  display: none;
+}
+#claws .highcharts-title{
+  display: none;
+}
