@@ -7,6 +7,7 @@
  * express
  * request
  * body-parser
+ * font-awesome
 
 ### Setup
 
