@@ -9,7 +9,8 @@
  * body-parser
 
 ### Setup
-  * From CatzNDogz Separate Docker Folder
+
+  * From CatzNDogz *Separate* Docker Folder run:
 
     * `docker build -t catzndogzserver .`
 
@@ -17,6 +18,20 @@
 
     * Test Connection:
 `curl localhost:5000/health-check`  
+
+* For FrontEnd
+  * Make sure you have `node` and `nvm` installed
+
+    * To test if installed for Windows and Mac Users
+
+      * Test Node. In terminal type `node -v`.
+      This should print a version number, so you’ll see something like this v8.10.0.
+      * Test NPM. In terminal type type `npm -v`.
+      This should print NPM’s version number so you’ll see something like this 5.6.0
+      http://blog.teamtreehouse.com/install-node-js-npm-windows
+
+  * Instructions for node
+    * https://nodejs.org/en/download/
 
 * From this CatzNDogz Front in Folder
   * run `npm install`
