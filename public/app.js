@@ -84,7 +84,6 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
         enabled: true,
         text: 'Animal IDs'
       },
-      // tickInterval: 1,
       minRange: 1,
       allowDecimals: false,
       startOnTick: true,
@@ -100,7 +99,10 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
     yAxis: {
       title: {
         text: 'Number of Legs'
-      }
+      },
+      tickInterval: 1,
+      minRange: 1,
+      allowDecimals: false
     },
     legend: {
       layout: 'vertical',
