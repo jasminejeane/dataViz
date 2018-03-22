@@ -1,38 +1,39 @@
 const dataDogs = [];
 const dataCats = [];
 
+function updateType() {
 
+  var checked = $('input[name=checkbox]:checked');
 
-	function updateType() {
+  const id = checked[0].attributes[0].value;
+  const type = checked[0].attributes[1].value;
+  let typed = null;
 
-		var checked = $('input[name=checkbox]:checked');
+  if (type === 'cat') {
+    typed = 'dog';
+  } else if (type === 'dog') {
+    typed === 'cat';
+  }
 
-		const id = checked[0].attributes[0].value;
-		const type = checked[0].attributes[1].value;
-		let typed = null;
+  console.log(typed);
+  $.ajax({
+    method: "PUT",
+    url: "http://localhost:8080/animal/" + id,
+    data: {
+      type: typed
+    }
+    // req.body
+  }).then(
+  // td with id
+  // if cat..
+  );
 
-		if(type === 'cat'){
-			typed = 'dog';
-		}else if (type === 'dog') {
-			typed === 'cat';
-		}
-
-console.log(typed);
-		$.ajax({
-			method: "PUT",
-			url: "http://localhost:8080/animal/" + id,
-			data: {type: typed}
-			// req.body
-		}).then(console.log("updated"));
-
-
-
-	}
+}
 
 // create Characteristics Table
 const createTable = (data, min, max) => {
 
-  if(!min && !max){
+  if (!min && !max) {
     min = 0;
     // max = data.length;
     max = 50;
@@ -58,38 +59,36 @@ const createTable = (data, min, max) => {
     }
 
     $("#animal-table > tbody").append(`<tr>
-  <td>
-    <input data-id=${id} data-type=${type} type="checkbox" name="checkbox" value="checkbox">
-  </td>
-  <td> ${id} </td>
-  <td> ${type} </td>
-  <td>${name}</td>
-  <td>${body}</td>
-  <td>${claws}</td>
-  <td>${color}</td>
-  <td>${furType} </td>
-  <td>${numLegs}</td>
+<td>
+<input data-id=${id} data-type=${type} type="checkbox" name="checkbox" value="checkbox">
+</td>
+<td> ${id} </td>
+<td> ${type} </td>
+<td>${name}</td>
+<td>${body}</td>
+<td>${claws}</td>
+<td>${color}</td>
+<td>${furType} </td>
+<td>${numLegs}</td>
 </tr>`);
   }
 }
 
-
 // var ckc = $('#ckc').is(":checked");
-// 	console.log(ckc);
+// console.log(ckc);
 // console.log(atLeastOneIsChecked);
 // is checked function
 // global charID
 // if is checked - charID = data-id.value
 // if updateType btn is clicked
-  // in updateType function put ajax call
-  //  re render chart || ...
+// in updateType function put ajax call
+// re render chart || ...
 // make ajax call when zoom event happens to reRender Table
 const renderTable = (min, max) => {
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
     createTable(data, min, max);
   });
 }
-
 
 // create initial chart and table
 $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
@@ -98,7 +97,6 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
 
   Highcharts.chart('container', {
     chart: {
-      type: 'scatter',
       zoomType: 'xy'
     },
     title: {
@@ -120,7 +118,6 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
       events: {
         setExtremes: function(e) {
           renderTable(Math.ceil(e.min), Math.ceil(e.max));
-          console.log(series.data);
         }
       }
     },
@@ -154,12 +151,8 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
           }
         },
         tooltip: {
-          // series.data
           headerFormat: '<b>{series.name}</b><br>',
-          pointFormat: '{point.x} , {point.y} ',
-					// pointFormatter: function(){
-					// 	console.log("series", series);
-					// }
+          pointFormat: '{point.x} , {point.y} '
         }
       }
     },
@@ -174,6 +167,7 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
         color: 'rgba(119, 152, 191, .5)',
         data: dataCats
       }
+
     ]
   });
 });
