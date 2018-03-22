@@ -1,7 +1,17 @@
 const dataDogs = [];
 const dataCats = [];
 
+
+// create Characteristics Table
 function createTable(data, min, max) {
+
+  if(!min && !max){
+    min = 0;
+    // max = data.length;
+    max = 100;
+    console.log(min, max);
+  }
+
   $("#animal-table > tbody").html("");
   for (var i = min; i < max; i++) {
 
@@ -36,16 +46,17 @@ function createTable(data, min, max) {
   }
 }
 
-// refactor in progress
+// make ajax call when zoom event happens to reRender Table
 function renderTable(min, max) {
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
     createTable(data, min, max);
   });
 }
 
+// create initial chart and table
 $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
 
-  createTable(data, 0, data.length);
+  createTable(data, 0, 100);
 
   Highcharts.chart('container', {
     chart: {
@@ -69,6 +80,7 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
       events: {
         setExtremes: function(e) {
           renderTable(Math.ceil(e.min), Math.ceil(e.max));
+          console.log("e", e);
         }
       }
     },
