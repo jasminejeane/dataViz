@@ -6,8 +6,8 @@ const dataCats = [];
 	function updateType() {
 		$.ajax({
 			method: "PUT",
-			url: "http://localhost:8080/animal/" + 1,
-			data: {'type': 'cat'}
+			url: "http://localhost:8080/animal/" + 2,
+			data: {type: 'cat'}
 			// req.body
 		}).then(console.log("updated"));
 	}
