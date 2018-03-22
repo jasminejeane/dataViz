@@ -1,6 +1,6 @@
 # CatzNDogz
 
-###Dependencies
+### Dependencies
  * bootstrap
  * jquery
  * highcharts
@@ -19,8 +19,8 @@
 `curl localhost:5000/health-check`  
 
 * From this CatzNDogz Front in Folder
-  * npm install
-  * run node server
+  * run `npm install`
+  * run `node server`
   * view on port 8080
 
 
