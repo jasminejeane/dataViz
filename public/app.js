@@ -4,12 +4,29 @@ const dataCats = [];
 
 
 	function updateType() {
+
+		var checked = $('input[name=checkbox]:checked');
+
+		const id = checked[0].attributes[0].value;
+		const type = checked[0].attributes[1].value;
+		let typed = null;
+
+		if(type === 'cat'){
+			typed = 'dog';
+		}else if (type === 'dog') {
+			typed === 'cat';
+		}
+
+console.log(typed);
 		$.ajax({
 			method: "PUT",
-			url: "http://localhost:8080/animal/" + 2,
-			data: {type: 'cat'}
+			url: "http://localhost:8080/animal/" + id,
+			data: {type: typed}
 			// req.body
 		}).then(console.log("updated"));
+
+
+
 	}
 
 // create Characteristics Table
@@ -42,7 +59,7 @@ const createTable = (data, min, max) => {
 
     $("#animal-table > tbody").append(`<tr>
   <td>
-    <input type="checkbox" name="checkbox" value="checkbox">
+    <input data-id=${id} data-type=${type} type="checkbox" name="checkbox" value="checkbox">
   </td>
   <td> ${id} </td>
   <td> ${type} </td>
@@ -55,6 +72,17 @@ const createTable = (data, min, max) => {
 </tr>`);
   }
 }
+
+
+// var ckc = $('#ckc').is(":checked");
+// 	console.log(ckc);
+// console.log(atLeastOneIsChecked);
+// is checked function
+// global charID
+// if is checked - charID = data-id.value
+// if updateType btn is clicked
+  // in updateType function put ajax call
+  //  re render chart || ...
 // make ajax call when zoom event happens to reRender Table
 const renderTable = (min, max) => {
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
@@ -92,7 +120,7 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
       events: {
         setExtremes: function(e) {
           renderTable(Math.ceil(e.min), Math.ceil(e.max));
-          console.log("e", e);
+          console.log(series.data);
         }
       }
     },
@@ -126,8 +154,12 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
           }
         },
         tooltip: {
-          headerFormat: '<b>{series.data}</b><br>',
-          pointFormat: '{point.x} , {point.y} '
+          // series.data
+          headerFormat: '<b>{series.name}</b><br>',
+          pointFormat: '{point.x} , {point.y} ',
+					// pointFormatter: function(){
+					// 	console.log("series", series);
+					// }
         }
       }
     },
