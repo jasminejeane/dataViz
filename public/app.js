@@ -1,6 +1,14 @@
 const dataDogs = [];
 const dataCats = [];
 
+
+function menuClick(){
+	// e.preventDefault();
+	$("#wrapper").toggleClass("active");
+	console.log("clicked");
+}
+// navBar
+
 function updateType() {
 
   var checked = $('input[name=checkbox]:checked');
