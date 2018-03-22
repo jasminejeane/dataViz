@@ -1,7 +1,12 @@
 # CatzNDogz
 
 ###Dependencies
-
+ * bootstrap
+ * jquery
+ * highcharts
+ * express
+ * request
+ * body-parser
 
 ### Setup
   * From CatzNDogz Separate Docker Folder

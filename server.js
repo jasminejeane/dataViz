@@ -30,7 +30,6 @@ app.get("/animals", function(req, res){
 
 app.put("/animal/:id", function(req, res){
 
-  console.log(req);
   request({
     url: `http://localhost:5000/animal/${req.params.id}`,
     method: req.method,
