@@ -16,10 +16,10 @@
   margin-top: 75px;
 }
 
-#claws .highcharts-button.highcharts-contextbutton{
+.pie-charts .highcharts-button.highcharts-contextbutton{
   display: none;
 }
-#claws .highcharts-title{
+.pie-charts .highcharts-title{
   display: none;
 }
 

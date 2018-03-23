@@ -51,6 +51,7 @@ const createTable = (data, min, max) => {
   $("#animal-table > tbody").html("");
   for (var i = min; i < max; i++) {
 
+		// const { id, type } = data[i]
     const id = data[i].id;
     const type = data[i].type;
     const name = data[i].name;
@@ -97,6 +98,12 @@ const renderTable = (min, max) => {
     createTable(data, min, max);
   });
 }
+
+// $.ajax...etc.then((data) => {
+// 	createTable(data, mix, max, true)
+// 	createTable(other plotOptions)
+// })
+
 
 // create initial chart and table
 $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
