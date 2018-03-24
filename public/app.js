@@ -23,6 +23,7 @@ function updateType() {
     typed = 'cat';
   }
 
+$("#type" + id).html(typed);
   $.ajax({
     method: "PUT",
     url: "http://localhost:8080/animal/" + id,
@@ -31,11 +32,9 @@ function updateType() {
     }
     // req.body
   }).then(function(){
+		// $("#type" + id).html(typed);
 	}
-  // td with id
-  // if cat..
   );
-
 }
 
 // create Characteristics Table
@@ -72,7 +71,7 @@ const createTable = (data, min, max) => {
 <input data-id=${id} data-type=${type} type="checkbox" name="checkbox" value="checkbox">
 </td>
 <td> ${id} </td>
-<td> ${type} </td>
+<td id="type${id}"> ${type} </td>
 <td>${name}</td>
 <td>${body}</td>
 <td>${claws}</td>
