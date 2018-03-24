@@ -20,10 +20,9 @@ function updateType() {
   if (type === 'cat') {
     typed = 'dog';
   } else if (type === 'dog') {
-    typed === 'cat';
+    typed = 'cat';
   }
 
-  console.log(typed);
   $.ajax({
     method: "PUT",
     url: "http://localhost:8080/animal/" + id,
@@ -31,7 +30,8 @@ function updateType() {
       type: typed
     }
     // req.body
-  }).then(
+  }).then(function(){
+	}
   // td with id
   // if cat..
   );
