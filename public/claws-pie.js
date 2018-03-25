@@ -33,6 +33,9 @@ $(function() {
         series: {
           dataLabels: {
             enabled: true,
+            crop: false,
+            overflow: "none",
+            connectorWidth: 0,
             format: '{point.name}: {point.y:f}%'
           }
         }
