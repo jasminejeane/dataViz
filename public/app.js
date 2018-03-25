@@ -1,6 +1,5 @@
 let numRows;
 
-
 $(document).ready(function() {
 
   // show more show less for length of rows
