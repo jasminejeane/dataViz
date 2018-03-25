@@ -28,46 +28,22 @@ $(document).ready(function() {
   });
 });
 
-// updates animal type on button click
-// function updateType() {
-//   $('input[type=checkbox]:checked').each(function() {
-//
-//     const id = this.attributes[0].value,
-//           type = this.attributes[1].value,
-//           typed = (type === 'cat')
-//       ? '&#x1F436'
-//       : '&#x1F42F';
-//
-//     $("#type" + id).html(typed);
-//
-//     this.checked = false;
-//
-//     $.ajax({
-//       method: "PUT",
-//       url: "http://localhost:8080/animal/" + id,
-//       data: {
-//         type: typed
-//       }
-//     }).then(function() {
-//     });
-//
-//   });
-// }
-
 
 // updates animal type on button click
 function updateType() {
   $('input[type=checkbox]:checked').each(function() {
 
-    // const checked = $('input[name=checkbox]:checked');
 
     const id = this.attributes[0].value;
     const type = this.attributes[1].value;
-    const typed = (type === 'cat')
+    const changeType = (type === 'cat')
       ? 'dog'
       : 'cat';
+    const changeEmoji = (type === 'cat')
+          ? '&#x1F436'
+          : '&#x1F42F';
 
-    $("#type" + id).html(typed);
+    $("#type" + id).html(changeEmoji);
 
     this.checked = false;
 
@@ -75,7 +51,7 @@ function updateType() {
       method: "PUT",
       url: "http://localhost:8080/animal/" + id,
       data: {
-        type: typed
+        type: changeType
       }
     }).then(function() {
     });
