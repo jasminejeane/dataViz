@@ -21,7 +21,7 @@ export const plotOptions = {
           crop: false,
           overflow: "none",
           connectorWidth: 0,
-          distance: -30,
+          distance: -45,
           format: '{point.name} <br> {point.percentage:.1f}%',
           style: {
             textOutline: false

@@ -17,11 +17,20 @@ font-family: 'Abel', sans-serif;
 }
 
 .headline a {
-  border: 2px solid #fff;
+border: 2px solid #d53d5e;
   border-radius: 15px;
   margin: 15px;
   color: #fff;
+  text-decoration: none;
 }
+
+/* #graph{
+  border: 2px solid #d53d5e;
+}
+
+#table{
+  border: 2px solid #81bb6b;
+} */
 
 .highcharts-credits{
 display: none;
