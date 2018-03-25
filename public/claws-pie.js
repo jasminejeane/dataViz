@@ -1,3 +1,6 @@
+import {chart, subTitleStlye, plotOptions, toolTip } from "./utils/pies.js";
+
+
 $(function() {
 
   $.ajax({
