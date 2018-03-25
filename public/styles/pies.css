@@ -1,0 +1,24 @@
+.pie-charts{
+  margin-bottom: 75px;
+}
+
+.pie{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+.table-title{
+  margin-left: 20%;
+}
+
+.table-header{
+  margin-top: 75px;
+}
+
+.pie-charts .highcharts-button.highcharts-contextbutton{
+  display: none;
+}
+.pie-charts .highcharts-title{
+  display: none;
+}
