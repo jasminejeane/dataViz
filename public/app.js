@@ -33,9 +33,9 @@ $(document).ready(function() {
 function updateType() {
   $('input[type=checkbox]:checked').each(function() {
 
-    const id = this.attributes[0].value;
-    const type = this.attributes[1].value;
-    const typed = (type === 'cat')
+    const id = this.attributes[0].value,
+          type = this.attributes[1].value,
+          typed = (type === 'cat')
       ? '&#x1F436'
       : '&#x1F42F';
 
@@ -59,9 +59,9 @@ const menuClick = () => {
   $("#wrapper").toggleClass("active");
 }
 
-const dataDogs = [];
-const dataCats = [];
-const serieName = [];
+const dataDogs = [],
+      dataCats = [],
+      serieName = [];
 
 // create Characteristics Table
 const createTable = (data, min, max) => {
@@ -72,20 +72,13 @@ const createTable = (data, min, max) => {
   }
 
   $("#animal-table > tbody").html("");
-  for (var i = min; i < max; i++) {
+  for (let i = min; i < max; i++) {
 
-    // const { id, type } = data[i]
+    const { id, type, name, body_size, claws, color, fur_type, number_of_legs } = data[i];
 		let aniEmoji;
-    const id = data[i].id;
-    const type = data[i].type;
-    const name = data[i].name;
-    const body = data[i].body_size;
-    const claws = data[i].claws;
-    const color = data[i].color;
-    const furType = data[i].fur_type;
-    const numLegs = data[i].number_of_legs;
 
-		let serieData = {	x: id, y: numLegs, nameVal: name}
+
+		let serieData = {	x: id, y: number_of_legs, nameVal: name}
 
     if (type === "dog") {
       dataDogs.push(serieData);
@@ -102,11 +95,11 @@ const createTable = (data, min, max) => {
 			<td> ${id} </td>
 			<td id="type${id}"> ${aniEmoji}  </td>
 			<td>${name}</td>
-			<td>${body}</td>
+			<td>${body_size}</td>
 			<td>${claws}</td>
 			<td>${color}</td>
-			<td>${furType} </td>
-			<td>${numLegs}</td>
+			<td>${fur_type} </td>
+			<td>${number_of_legs}</td>
 			</tr>`);
   }
 
@@ -114,10 +107,6 @@ const createTable = (data, min, max) => {
   console.log(numRows);
 }
 
-
-// const toolTips = () => {
-// 	return 'Name: <b>' + this.nameVal + '</b><br> Body Size: <b>' + this.bodyVal + '</b>';
-// }
 
 const renderTable = (min, max) => {
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
