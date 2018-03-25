@@ -1,3 +1,5 @@
+import {chart, subTitleStlye, plotOptions, toolTip, dataHash } from "./utils/pies.js";
+
 $(function() {
 
   $.ajax({
@@ -5,9 +7,9 @@ $(function() {
     method: "GET"
   }).then(function(data) {
 // (type, i think hash name doesn't need to change)
-    var dogTraits = {},
+    const dogTraits = {},
         catTraits = {};
-    for (i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
 
       if (data[i].type === "dog") {
         if (dogTraits[data[i].color] === undefined) {
@@ -26,42 +28,14 @@ $(function() {
     }
 
     Highcharts.chart('color', {
-      chart: {
-        type: 'pie',
-        margin: [0, 0, 0, 0],
-        plotBackgroundColor: '#1f2237',
-        plotBorderWidth: null,
-        plotShadow: true
-      },
+      chart: chart,
       subtitle: {
         text: 'COLOR',
-        style: {
-          color: '#fff',
-         fontWeight: 'bold',
-         fontSize: 16
-     }
+        style: subTitleStlye
       },
-      plotOptions: {
-        series: {
-          dataLabels: {
-            enabled: true,
-            crop: false,
-            overflow: "none",
-            connectorWidth: 0,
-            distance: -30,
-              borderColor: '#ff00cc',
-            format: '{point.name} <br> {point.percentage:.1f}%',
-            style: {
-                  textOutline: false
-              }
-          }
-        }
-      },
+      plotOptions: plotOptions,
 
-      tooltip: {
-        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.percentage:.1f}%</b> of total<br/>'
-      },
+      tooltip: toolTip,
 
       "series": [{
         "name": "Browsers",

@@ -5,8 +5,6 @@
   "main": "server.js",
   "dependencies": {
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2016": "^6.24.1",
-    "babel-preset-es2017": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
@@ -16,8 +14,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server6.js",
-    "watch": "nodemon server6.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "author": "",
   "license": "ISC"

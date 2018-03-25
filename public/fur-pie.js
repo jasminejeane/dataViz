@@ -5,9 +5,9 @@ $(function() {
     method: "GET"
   }).then(function(data) {
 
-    var dogTraits = {},
+    const dogTraits = {},
         catTraits = {};
-    for (i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
 
       if (data[i].type === "dog") {
         if (dogTraits[data[i].fur_type] === undefined) {
