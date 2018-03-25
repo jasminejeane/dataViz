@@ -4,6 +4,11 @@ body{
 font-family: 'Abel', sans-serif;
 }
 
+.page-icons{
+  margin-top: 15px;
+  font-size: 45px;
+}
+
 
 .headline{
   padding-top: 65px;
