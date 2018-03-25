@@ -101,6 +101,7 @@ const createTable = (data, min, max) => {
 						furVal: furType
 					}
 
+
     if (type === "dog") {
       dataDogs.push(serieData);
     } else if (type === "cat") {
@@ -125,6 +126,11 @@ const createTable = (data, min, max) => {
   numRows = $("#animal-table tr").length;
   console.log(numRows);
 }
+
+
+// const toolTips = () => {
+// 	return 'Name: <b>' + this.nameVal + '</b><br> Body Size: <b>' + this.bodyVal + '</b>';
+// }
 
 const renderTable = (min, max) => {
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
@@ -189,10 +195,12 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
           }
         },
         tooltip: {
-          headerFormat: '<b>{series.name}</b><br>',
-          pointFormat: '{point.x} , {point.y} ',
+          // headerFormat: '<b>{series.name}</b><br>',
+          // pointFormat: '{point.x} , {point.y} ',
           pointFormatter: function(){
-          	console.log(this);
+						// console.log(this);
+						return `ID: <b>${this.x} </b><br>
+							Name: <b> ${this.nameVal}</b>`;
           }
         }
       }
