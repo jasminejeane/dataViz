@@ -68,7 +68,7 @@ const createTable = (data, min, max) => {
 
   if (!min && !max) {
     min = 0;
-    max = 1000;
+    max = 25;
   }
 
   $("#animal-table > tbody").html("");
@@ -128,7 +128,7 @@ const renderTable = (min, max) => {
 // create initial chart and table
 $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
 
-  createTable(data, 0, 1000);
+  createTable(data, 0, 25);
 
   Highcharts.chart('container', {
     chart: {
@@ -136,13 +136,19 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
       zoomType: 'xy',
 			plotBackgroundColor: '#1f2237',
 			plotBorderWidth: null,
-			plotShadow: true
+			plotShadow: true,
+			backgroundColor: 'transparent',
     },
     title: {
-      text: 'Number of Legs vs. IDs of 2600 Animals by Dog or Cat Type'
+      text: 'Number of Legs vs. IDs of 2600 Animals by Dog or Cat Type',
+			style: {
+				color: '#fff'
+			}
+
     },
     subtitle: {
-      text: 'Source: Animals API'
+      text: 'Source: Animals API',
+			color: '#fff'
     },
     xAxis: {
       title: {
@@ -199,11 +205,13 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
       {
         name: 'Dog',
         color: '#ccff00',
+				turboThreshold: 3000,
         data: dataDogs
 
       }, {
         name: 'Cat',
         color: '#ff00cc',
+				turboThreshold: 3000,
         data: dataCats
       }
 
