@@ -1,6 +1,5 @@
 let numRows;
-const dataDogs = [];
-const dataCats = [];
+
 
 $(document).ready(function() {
 
@@ -34,8 +33,6 @@ $(document).ready(function() {
 function updateType() {
   $('input[type=checkbox]:checked').each(function() {
 
-    // const checked = $('input[name=checkbox]:checked');
-
     const id = this.attributes[0].value;
     const type = this.attributes[1].value;
     const typed = (type === 'cat')
@@ -62,6 +59,13 @@ const menuClick = () => {
   $("#wrapper").toggleClass("active");
 }
 
+const dataDogs = [];
+const dataCats = [];
+const serieName = [];
+const serieBody = [];
+const serieClaws = [];
+const serieColor = [];
+const serieFur = [];
 // create Characteristics Table
 const createTable = (data, min, max) => {
 
@@ -83,10 +87,24 @@ const createTable = (data, min, max) => {
     const furType = data[i].fur_type;
     const numLegs = data[i].number_of_legs;
 
+		let serieData = {
+						x: id, y: numLegs,
+						nameKey: "Name",
+						nameVal: name,
+						bodyKey: "Body Type",
+						bodyVal:body,
+						clawsKey: "Claws",
+						clawsVal: claws,
+						colorKey: "Color",
+						colorVal: color,
+						furKey: "Fur Type",
+						furVal: furType
+					}
+
     if (type === "dog") {
-      dataDogs.push([id, numLegs, body, claws]);
+      dataDogs.push(serieData);
     } else if (type === "cat") {
-      dataCats.push([id, numLegs, body, claws]);
+      dataCats.push(serieData);
     }
 
     $("#animal-table > tbody").append(`<tr>
@@ -172,10 +190,10 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
         },
         tooltip: {
           headerFormat: '<b>{series.name}</b><br>',
-          pointFormat: '{point.x} , {point.y} '
-          // pointFormatter: function(){
-          // 	console.log(this);
-          // }
+          pointFormat: '{point.x} , {point.y} ',
+          pointFormatter: function(){
+          	console.log(this);
+          }
         }
       }
     },
