@@ -11,19 +11,32 @@ function menuClick(){
 
 function updateType() {
 
-  var checked = $('input[name=checkbox]:checked');
+  const checked = $('input[name=checkbox]:checked');
 
   const id = checked[0].attributes[0].value;
   const type = checked[0].attributes[1].value;
-  let typed = null;
+	const typed = (type === 'cat') ? 'dog' : 'cat';
 
-  if (type === 'cat') {
-    typed = 'dog';
-  } else if (type === 'dog') {
-    typed = 'cat';
-  }
 
-$("#type" + id).html(typed);
+	$("#type" + id).html(typed);
+
+	$('input[type=checkbox]').each(function()
+{
+        this.checked = false;
+});
+
+	// $('input:checkbox').removeAttr('checked');
+
+	// console.log(checkbox);
+
+
+	// checked.;
+	// $('#myCheck').click(function() {
+	//     var checkBoxes = $(this).siblings('input[type=checkbox]');
+	//     checkBoxes.prop('checked', $(this).is(':checked') ? true : false);
+	// });
+	console.log("checked", checked);
+// $('input:checked').attr('checked',false);
   $.ajax({
     method: "PUT",
     url: "http://localhost:8080/animal/" + id,
@@ -32,7 +45,6 @@ $("#type" + id).html(typed);
     }
     // req.body
   }).then(function(){
-		// $("#type" + id).html(typed);
 	}
   );
 }
@@ -111,6 +123,7 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
 
   Highcharts.chart('container', {
     chart: {
+			type: 'scatter',
       zoomType: 'xy'
     },
     title: {

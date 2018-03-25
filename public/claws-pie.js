@@ -1,3 +1,6 @@
+import findChar from './utils/pies';
+
+
 $(function() {
 
   $.ajax({
@@ -5,25 +8,7 @@ $(function() {
     method: "GET"
   }).then(function(data) {
 
-    var dogClaws = {},
-        catClaws = {};
-    for (i = 0; i < data.length; i++) {
-
-      if (data[i].type === "dog") {
-        if (dogClaws[data[i].claws] === undefined) {
-          dogClaws[data[i].claws] = 1;
-        } else if (dogClaws[data[i].claws]) {
-          dogClaws[data[i].claws]++;
-        }
-      }
-      if (data[i].type === "cat") {
-        if (catClaws[data[i].claws] === undefined) {
-          catClaws[data[i].claws] = 1;
-        } else if (catClaws[data[i].claws]) {
-          catClaws[data[i].claws]++;
-        }
-      }
-    }
+    const {dogTraits, catTraits} = findChar(data);
 
     Highcharts.chart('claws', {
       chart: {
@@ -48,12 +33,12 @@ $(function() {
         "colorByPoint": true,
         "data": [{
             "name": "Sharp",
-            "y": catClaws.sharp + dogClaws.sharp,
+            "y": catTraits.sharp + dogTraits.sharp,
             "drilldown": "sharp"
           },
           {
             "name": "Dull",
-            "y": catClaws.dull + dogClaws.dull,
+            "y": catTraits.dull + dogTraits.dull,
             "drilldown": "dull"
           }
         ]
@@ -65,11 +50,11 @@ $(function() {
             "data": [
               [
                 "dog",
-                dogClaws.sharp
+                dogTraits.sharp
               ],
               [
                 "cat",
-                catClaws.sharp
+                catTraits.sharp
               ],
 
             ]
@@ -80,11 +65,11 @@ $(function() {
             "data": [
               [
                 "dog",
-                dogClaws.dull
+                dogTraits.dull
               ],
               [
                 "cat",
-                catClaws.sharp
+                catTraits.sharp
               ],
             ]
           }
