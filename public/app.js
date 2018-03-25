@@ -62,10 +62,7 @@ const menuClick = () => {
 const dataDogs = [];
 const dataCats = [];
 const serieName = [];
-const serieBody = [];
-const serieClaws = [];
-const serieColor = [];
-const serieFur = [];
+
 // create Characteristics Table
 const createTable = (data, min, max) => {
 
@@ -87,20 +84,7 @@ const createTable = (data, min, max) => {
     const furType = data[i].fur_type;
     const numLegs = data[i].number_of_legs;
 
-		let serieData = {
-						x: id, y: numLegs,
-						nameKey: "Name",
-						nameVal: name,
-						bodyKey: "Body Type",
-						bodyVal:body,
-						clawsKey: "Claws",
-						clawsVal: claws,
-						colorKey: "Color",
-						colorVal: color,
-						furKey: "Fur Type",
-						furVal: furType
-					}
-
+		let serieData = {	x: id, y: numLegs, nameVal: name}
 
     if (type === "dog") {
       dataDogs.push(serieData);
@@ -195,12 +179,11 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
           }
         },
         tooltip: {
-          // headerFormat: '<b>{series.name}</b><br>',
-          // pointFormat: '{point.x} , {point.y} ',
+
           pointFormatter: function(){
 						// console.log(this);
 						return `ID: <b>${this.x} </b><br>
-							Name: <b> ${this.nameVal}</b>`;
+							Name: <b> ${this.nameVal}</b><br>`;
           }
         }
       }
