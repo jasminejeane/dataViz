@@ -40,6 +40,7 @@ $(function() {
             crop: false,
             overflow: "none",
             connectorWidth: 0,
+            distance: -30,
             format: '{point.name}: {point.y:f}%'
           }
         }
