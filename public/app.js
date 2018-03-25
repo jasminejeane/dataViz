@@ -1,27 +1,31 @@
 $(document).ready(function() {
 
+
+	// show more show less for length of rows
+	// limit the number of inital rows that show
+	let x =5;
+
+	$('#more').click(function () {
+		console.log("Clicked");
+			const numRows = $("#animal-table tr").length;
+		console.log(numRows);
+			x= (x+5 <= numRows) ? x+5 : numRows;
+			$('#animal-table tr:lt('+x+')').show();
+	});
+
+	$('#less').click(function () {
+			x=(x-5<0) ? 10 : x-5;
+			$('#animal-table tr').not(':lt('+x+')').hide();
+	});
+
+});
+
+
+
 const dataDogs = [];
 const dataCats = [];
 
 
-
-
-// show more show less for length of rows
-// limit the number of inital rows that show
-let x =5;
-
-$('#more').click(function () {
-	console.log("Clicked");
-		const numRows = $("#animal-table tr").length;
-	console.log(numRows);
-		x= (x+5 <= numRows) ? x+5 : numRows;
-		$('#animal-table tr:lt('+x+')').show();
-});
-
-$('#less').click(function () {
-		x=(x-5<0) ? 10 : x-5;
-		$('#animal-table tr').not(':lt('+x+')').hide();
-});
 
 
 // toggles side bar
@@ -29,34 +33,6 @@ function menuClick(){
 	$("#wrapper").toggleClass("active");
 }
 
-// updates animal type on button click
-function updateType() {
-
-  const checked = $('input[name=checkbox]:checked');
-
-  const id = checked[0].attributes[0].value;
-  const type = checked[0].attributes[1].value;
-	const typed = (type === 'cat') ? 'dog' : 'cat';
-
-
-	$("#type" + id).html(typed);
-
-	$('input[type=checkbox]').each(function()
-{
-        this.checked = false;
-});
-
-
-  $.ajax({
-    method: "PUT",
-    url: "http://localhost:8080/animal/" + id,
-    data: {
-      type: typed
-    }
-  }).then(function(){
-	}
-  );
-}
 
 // create Characteristics Table
 const createTable = (data, min, max) => {
@@ -188,7 +164,6 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
 
     ]
   });
-});
 });
 // for rendering outside of mulitple ajax calls
 // see color-combo in high-charts-1

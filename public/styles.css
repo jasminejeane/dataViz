@@ -1,9 +1,15 @@
-h2{
-padding-top: 65px;
-margin-bottom: 65px;
+
+
+.headline{
+  padding-top: 65px;
+  margin-bottom: 65px;
 }
 
-
+.headline a {
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 15px;
+}
 .pie-charts{
   margin-bottom: 75px;
 }
