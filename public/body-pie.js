@@ -34,7 +34,12 @@ $(function() {
         plotShadow: true
       },
       subtitle: {
-        text: 'Body Size'
+        text: 'BODY SIZE',
+        style: {
+          color: '#fff',
+         fontWeight: 'bold',
+         fontSize: 16
+     }
       },
       plotOptions: {
         series: {

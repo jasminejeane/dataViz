@@ -34,7 +34,12 @@ $(function() {
         plotShadow: true
       },
       subtitle: {
-        text: 'Color'
+        text: 'COLOR',
+        style: {
+          color: '#fff',
+         fontWeight: 'bold',
+         fontSize: 16
+     }
       },
       plotOptions: {
         series: {

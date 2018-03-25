@@ -36,8 +36,8 @@ function updateType() {
     const id = this.attributes[0].value;
     const type = this.attributes[1].value;
     const typed = (type === 'cat')
-      ? 'dog'
-      : 'cat';
+      ? '&#x1F436'
+      : '&#x1F42F';
 
     $("#type" + id).html(typed);
 

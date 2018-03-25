@@ -39,7 +39,12 @@ $(function() {
       //   beta: 0
       // },
       subtitle: {
-        text: 'Claws'
+        text: 'CLAWS',
+        style: {
+          color: '#fff',
+         fontWeight: 'bold',
+         fontSize: 16
+     }
       },
       plotOptions: {
         series: {

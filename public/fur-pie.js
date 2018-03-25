@@ -34,7 +34,12 @@ $(function() {
         plotShadow: true
       },
       subtitle: {
-        text: 'Fur Type'
+        text: 'FUR TYPE',
+        style: {
+          color: '#fff',
+         fontWeight: 'bold',
+         fontSize: 16
+     }
       },
       plotOptions: {
         // pie: {
