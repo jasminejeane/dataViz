@@ -41,14 +41,14 @@ $(function() {
             overflow: "none",
             connectorWidth: 0,
             distance: -30,
-            format: '{point.name}: {point.y:f}%'
+            format: '{point.name} <br> {point.percentage:.1f}%'
           }
         }
       },
 
       tooltip: {
         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:f}%</b> of total<br/>'
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.percentage:.1f}%</b> of total<br/>'
       },
 
       "series": [{

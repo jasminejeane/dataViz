@@ -5,22 +5,22 @@ $(function() {
     method: "GET"
   }).then(function(data) {
 
-    var dogClaws = {},
-        catClaws = {};
+    var dogTraits = {},
+        catTraits = {};
     for (i = 0; i < data.length; i++) {
 
       if (data[i].type === "dog") {
-        if (dogClaws[data[i].claws] === undefined) {
-          dogClaws[data[i].claws] = 1;
-        } else if (dogClaws[data[i].claws]) {
-          dogClaws[data[i].claws]++;
+        if (dogTraits[data[i].claws] === undefined) {
+          dogTraits[data[i].claws] = 1;
+        } else if (dogTraits[data[i].claws]) {
+          dogTraits[data[i].claws]++;
         }
       }
       if (data[i].type === "cat") {
-        if (catClaws[data[i].claws] === undefined) {
-          catClaws[data[i].claws] = 1;
-        } else if (catClaws[data[i].claws]) {
-          catClaws[data[i].claws]++;
+        if (catTraits[data[i].claws] === undefined) {
+          catTraits[data[i].claws] = 1;
+        } else if (catTraits[data[i].claws]) {
+          catTraits[data[i].claws]++;
         }
       }
     }
@@ -30,6 +30,11 @@ $(function() {
         type: 'pie',
         margin: [0, 0, 0, 0]
       },
+      // options3d: {
+      //   enabled: true,
+      //   alpha: 45,
+      //   beta: 0
+      // },
       subtitle: {
         text: 'Claws'
       },
@@ -41,14 +46,14 @@ $(function() {
             overflow: "none",
             connectorWidth: 0,
             distance: -30,
-            format: '{point.name}: {point.y:f}%'
+            format: '{point.name} <br> {point.percentage:.1f}%'
           }
         }
       },
 
       tooltip: {
         headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:f}%</b> of total<br/>'
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.percentage:.1f}%</b> of total<br/>'
       },
 
       "series": [{
@@ -56,12 +61,12 @@ $(function() {
         "colorByPoint": true,
         "data": [{
             "name": "Sharp",
-            "y": catClaws.sharp + dogClaws.sharp,
+            "y": catTraits.sharp + dogTraits.sharp,
             "drilldown": "sharp"
           },
           {
             "name": "Dull",
-            "y": catClaws.dull + dogClaws.dull,
+            "y": catTraits.dull + dogTraits.dull,
             "drilldown": "dull"
           }
         ]
@@ -73,11 +78,11 @@ $(function() {
             "data": [
               [
                 "dog",
-                dogClaws.sharp
+                dogTraits.sharp
               ],
               [
                 "cat",
-                catClaws.sharp
+                catTraits.sharp
               ],
 
             ]
@@ -88,11 +93,11 @@ $(function() {
             "data": [
               [
                 "dog",
-                dogClaws.dull
+                dogTraits.dull
               ],
               [
                 "cat",
-                catClaws.sharp
+                catTraits.sharp
               ],
             ]
           }
