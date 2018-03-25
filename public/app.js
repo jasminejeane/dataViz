@@ -1,14 +1,12 @@
 const dataDogs = [];
 const dataCats = [];
 
-
+// toggles side bar
 function menuClick(){
-	// e.preventDefault();
 	$("#wrapper").toggleClass("active");
-	console.log("clicked");
 }
-// navBar
 
+// updates animal type on button click
 function updateType() {
 
   const checked = $('input[name=checkbox]:checked');
@@ -25,25 +23,13 @@ function updateType() {
         this.checked = false;
 });
 
-	// $('input:checkbox').removeAttr('checked');
 
-	// console.log(checkbox);
-
-
-	// checked.;
-	// $('#myCheck').click(function() {
-	//     var checkBoxes = $(this).siblings('input[type=checkbox]');
-	//     checkBoxes.prop('checked', $(this).is(':checked') ? true : false);
-	// });
-	console.log("checked", checked);
-// $('input:checked').attr('checked',false);
   $.ajax({
     method: "PUT",
     url: "http://localhost:8080/animal/" + id,
     data: {
       type: typed
     }
-    // req.body
   }).then(function(){
 	}
   );
@@ -54,9 +40,7 @@ const createTable = (data, min, max) => {
 
   if (!min && !max) {
     min = 0;
-    // max = data.length;
     max = 50;
-    console.log(min, max);
   }
 
   $("#animal-table > tbody").html("");
@@ -94,26 +78,12 @@ const createTable = (data, min, max) => {
   }
 }
 
-// var ckc = $('#ckc').is(":checked");
-// console.log(ckc);
-// console.log(atLeastOneIsChecked);
-// is checked function
-// global charID
-// if is checked - charID = data-id.value
-// if updateType btn is clicked
-// in updateType function put ajax call
-// re render chart || ...
-// make ajax call when zoom event happens to reRender Table
+
 const renderTable = (min, max) => {
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
     createTable(data, min, max);
   });
 }
-
-// $.ajax...etc.then((data) => {
-// 	createTable(data, mix, max, true)
-// 	createTable(other plotOptions)
-// })
 
 
 // create initial chart and table
