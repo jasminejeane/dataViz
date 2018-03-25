@@ -127,12 +127,12 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
       allowDecimals: false
     },
     legend: {
-      layout: 'vertical',
-      align: 'left',
-      verticalAlign: 'top',
-      x: 100,
-      y: 70,
-      floating: true,
+      // layout: 'vertical',
+      // align: 'left',
+      // verticalAlign: 'top',
+      // x: 0,
+      // y: 0,
+      // floating: true,
       backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
       borderWidth: 1
     },
