@@ -11,7 +11,8 @@
     "express": "^4.13.4",
     "highcharts": "^6.0.7",
     "jquery": "^3.3.1",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "require": "^2.4.20"
   },
   "devDependencies": {
     "browserify": "^16.1.1",
