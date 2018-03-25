@@ -1,5 +1,28 @@
+$(document).ready(function() {
+
 const dataDogs = [];
 const dataCats = [];
+
+
+
+
+// show more show less for length of rows
+// limit the number of inital rows that show
+let x =5;
+
+$('#more').click(function () {
+	console.log("Clicked");
+		const numRows = $("#animal-table tr").length;
+	console.log(numRows);
+		x= (x+5 <= numRows) ? x+5 : numRows;
+		$('#animal-table tr:lt('+x+')').show();
+});
+
+$('#less').click(function () {
+		x=(x-5<0) ? 10 : x-5;
+		$('#animal-table tr').not(':lt('+x+')').hide();
+});
+
 
 // toggles side bar
 function menuClick(){
@@ -57,9 +80,9 @@ const createTable = (data, min, max) => {
     const numLegs = data[i].number_of_legs;
 
     if (type === "dog") {
-      dataDogs.push([id, numLegs]);
+      dataDogs.push([id, numLegs, body, claws]);
     } else if (type === "cat") {
-      dataCats.push([id, numLegs]);
+      dataCats.push([id, numLegs, body, claws]);
     }
 
     $("#animal-table > tbody").append(`<tr>
@@ -127,12 +150,7 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
       allowDecimals: false
     },
     legend: {
-      // layout: 'vertical',
-      // align: 'left',
-      // verticalAlign: 'top',
-      // x: 0,
-      // y: 0,
-      // floating: true,
+
       backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
       borderWidth: 1
     },
@@ -148,8 +166,11 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
           }
         },
         tooltip: {
-          headerFormat: '<b>{series.name}</b><br>',
-          pointFormat: '{point.x} , {point.y} '
+          // headerFormat: '<b>{series.name}</b><br>',
+          // pointFormat: '{point.x} , {point.y} ',
+					pointFormatter: function(){
+						console.log(this);
+					}
         }
       }
     },
@@ -168,7 +189,7 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
     ]
   });
 });
-
+});
 // for rendering outside of mulitple ajax calls
 // see color-combo in high-charts-1
 // $('#container').highcharts(json);

@@ -1,3 +1,9 @@
+h2{
+padding-top: 65px;
+margin-bottom: 65px;
+}
+
+
 .pie-charts{
   margin-bottom: 75px;
 }
@@ -24,7 +30,9 @@
 }
 
 
-/* menu */
+
+
+/* menu styling */
 #wrapper {
     padding-left: 70px;
     transition: all .4s ease 0s;

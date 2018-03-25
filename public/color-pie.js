@@ -27,7 +27,11 @@ $(function() {
 
     Highcharts.chart('color', {
       chart: {
-        type: 'pie'
+        type: 'pie',
+        margin: [0, 0, 0, 0]
+      },
+      subtitle: {
+        text: 'Color'
       },
       plotOptions: {
         series: {

@@ -27,7 +27,11 @@ $(function() {
 
     Highcharts.chart('furType', {
       chart: {
-        type: 'pie'
+        type: 'pie',
+        margin: [0, 0, 0, 0]
+      },
+      subtitle: {
+        text: 'Fur Type'
       },
       plotOptions: {
         series: {

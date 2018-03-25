@@ -27,7 +27,11 @@ $(function() {
 
     Highcharts.chart('claws', {
       chart: {
-        type: 'pie'
+        type: 'pie',
+        margin: [0, 0, 0, 0]
+      },
+      subtitle: {
+        text: 'Claws'
       },
       plotOptions: {
         series: {

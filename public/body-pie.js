@@ -27,7 +27,11 @@ $(function() {
 
     Highcharts.chart('bodySize', {
       chart: {
-        type: 'pie'
+        type: 'pie',
+        margin: [0, 0, 0, 0]
+      },
+      subtitle: {
+        text: 'Body Size'
       },
       plotOptions: {
         series: {
