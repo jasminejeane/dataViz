@@ -126,6 +126,9 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
 			plotBorderWidth: null,
 			plotShadow: true,
 			backgroundColor: 'transparent',
+      // events: {click: function(e){
+      //   console.log(e);
+      // }}
     },
     title: {
       text: 'Number of Legs vs. IDs of 2600 Animals by Dog or Cat Type',
