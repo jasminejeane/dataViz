@@ -28,12 +28,18 @@ $(function() {
     Highcharts.chart('furType', {
       chart: {
         type: 'pie',
-        margin: [0, 0, 0, 0]
+        margin: [0, 0, 0, 0],
+        plotBackgroundColor: '#1f2237',
+        plotBorderWidth: null,
+        plotShadow: true
       },
       subtitle: {
         text: 'Fur Type'
       },
       plotOptions: {
+        // pie: {
+        //   borderColor: '#ff00cc'
+        // },
         series: {
           dataLabels: {
             enabled: true,
@@ -41,7 +47,10 @@ $(function() {
             overflow: "none",
             connectorWidth: 0,
             distance: -30,
-            format: '{point.name} <br> {point.percentage:.1f}%'
+            format: '{point.name} <br> {point.percentage:.1f}%',
+            style: {
+                  textOutline: false
+              }
           }
         }
       },
@@ -57,12 +66,14 @@ $(function() {
         "data": [{
             "name": "Striped",
             "y": catTraits.striped + dogTraits.striped,
-            "drilldown": "striped"
+            "drilldown": "striped",
+            "color": "#44989e"
           },
           {
             "name": "Plain",
             "y": catTraits.plain + dogTraits.plain,
-            "drilldown": "plain"
+            "drilldown": "plain",
+            "color": "#fff"
           }
         ]
       }],

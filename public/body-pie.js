@@ -28,7 +28,10 @@ $(function() {
     Highcharts.chart('bodySize', {
       chart: {
         type: 'pie',
-        margin: [0, 0, 0, 0]
+        margin: [0, 0, 0, 0],
+        plotBackgroundColor: '#1f2237',
+        plotBorderWidth: null,
+        plotShadow: true
       },
       subtitle: {
         text: 'Body Size'
@@ -41,7 +44,11 @@ $(function() {
             overflow: "none",
             connectorWidth: 0,
             distance: -30,
-            format: '{point.name} <br> {point.percentage:.1f}%'
+            borderColor: '#ff00cc',
+            format: '{point.name} <br> {point.percentage:.1f}%',
+            style: {
+                  textOutline: false
+              }
           }
         }
       },
@@ -57,11 +64,13 @@ $(function() {
         "data": [{
             "name": "Large",
             "y": catBody.large + dogBody.large,
+            "color": "#44989e",
             "drilldown": "large"
           },
           {
             "name": "Normal",
             "y": catBody.normal + dogBody.normal,
+            "color": "#fff",
             "drilldown": "normal"
           },
           {

@@ -68,13 +68,14 @@ const createTable = (data, min, max) => {
 
   if (!min && !max) {
     min = 0;
-    max = 50;
+    max = 1000;
   }
 
   $("#animal-table > tbody").html("");
   for (var i = min; i < max; i++) {
 
     // const { id, type } = data[i]
+		let aniEmoji;
     const id = data[i].id;
     const type = data[i].type;
     const name = data[i].name;
@@ -88,8 +89,10 @@ const createTable = (data, min, max) => {
 
     if (type === "dog") {
       dataDogs.push(serieData);
+			aniEmoji = '&#x1F436';
     } else if (type === "cat") {
       dataCats.push(serieData);
+			aniEmoji = '&#x1F42F';
     }
 
     $("#animal-table > tbody").append(`<tr>
@@ -97,7 +100,7 @@ const createTable = (data, min, max) => {
 			<input data-id=${id} data-type=${type} type="checkbox" name="checkbox" value="checkbox">
 			</td>
 			<td> ${id} </td>
-			<td id="type${id}"> ${type} </td>
+			<td id="type${id}"> ${aniEmoji}  </td>
 			<td>${name}</td>
 			<td>${body}</td>
 			<td>${claws}</td>
@@ -125,12 +128,15 @@ const renderTable = (min, max) => {
 // create initial chart and table
 $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
 
-  createTable(data, 0, 50);
+  createTable(data, 0, 1000);
 
   Highcharts.chart('container', {
     chart: {
       type: 'scatter',
-      zoomType: 'xy'
+      zoomType: 'xy',
+			plotBackgroundColor: '#1f2237',
+			plotBorderWidth: null,
+			plotShadow: true
     },
     title: {
       text: 'Number of Legs vs. IDs of 2600 Animals by Dog or Cat Type'
@@ -174,7 +180,8 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
           states: {
             hover: {
               enabled: true,
-              lineColor: 'rgb(100,100,100)'
+              lineColor: '#2c2f59',
+
             }
           }
         },
@@ -191,12 +198,12 @@ $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data
     series: [
       {
         name: 'Dog',
-        color: 'rgba(223, 83, 83, .5)',
+        color: '#ccff00',
         data: dataDogs
 
       }, {
         name: 'Cat',
-        color: 'rgba(119, 152, 191, .5)',
+        color: '#ff00cc',
         data: dataCats
       }
 

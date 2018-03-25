@@ -1,3 +1,8 @@
+body{
+  background: #1f2237;
+  color: #fff;
+font-family: 'Abel', sans-serif;
+}
 
 
 .headline{
@@ -6,9 +11,10 @@
 }
 
 .headline a {
-  border: 2px solid black;
+  border: 2px solid #fff;
   border-radius: 15px;
   margin: 15px;
+  color: #fff;
 }
 
 .highcharts-credits{
@@ -27,11 +33,12 @@ display: none;
     margin-left: -150px;
     left: 70px;
     width: 150px;
-    background: #222;
+    background: #232641;
     position: fixed;
     height: 100%;
     z-index: 10000;
     transition: all .4s ease 0s;
+    box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 12px 0 15px -4px rgba(6, 25, 47, 0.8), -12px 0 15px -4px rgba(31, 73, 125, 0.8);
 }
 
 .sidebar-nav {
@@ -65,8 +72,8 @@ display: none;
     float: left;
     text-decoration: none;
     width: 150px;
-    background: #252525;
-    border-top: 1px solid #373737;
+    background: #232641;
+    border-top: 1px solid #2c2f59;
     border-bottom: 1px solid #1A1A1A;
     -webkit-transition: background .5s;
     -moz-transition: background .5s;

@@ -28,7 +28,10 @@ $(function() {
     Highcharts.chart('claws', {
       chart: {
         type: 'pie',
-        margin: [0, 0, 0, 0]
+        margin: [0, 0, 0, 0],
+      plotBackgroundColor: '#1f2237',
+      plotBorderWidth: null,
+      plotShadow: true
       },
       // options3d: {
       //   enabled: true,
@@ -46,7 +49,10 @@ $(function() {
             overflow: "none",
             connectorWidth: 0,
             distance: -30,
-            format: '{point.name} <br> {point.percentage:.1f}%'
+            format: '{point.name} <br> {point.percentage:.1f}%',
+            style: {
+                  textOutline: false
+              }
           }
         }
       },
@@ -62,11 +68,13 @@ $(function() {
         "data": [{
             "name": "Sharp",
             "y": catTraits.sharp + dogTraits.sharp,
+            "color": "#44989e",
             "drilldown": "sharp"
           },
           {
             "name": "Dull",
             "y": catTraits.dull + dogTraits.dull,
+            "color": "#fff",
             "drilldown": "dull"
           }
         ]

@@ -28,7 +28,10 @@ $(function() {
     Highcharts.chart('color', {
       chart: {
         type: 'pie',
-        margin: [0, 0, 0, 0]
+        margin: [0, 0, 0, 0],
+        plotBackgroundColor: '#1f2237',
+        plotBorderWidth: null,
+        plotShadow: true
       },
       subtitle: {
         text: 'Color'
@@ -41,7 +44,11 @@ $(function() {
             overflow: "none",
             connectorWidth: 0,
             distance: -30,
-            format: '{point.name} <br> {point.percentage:.1f}%'
+              borderColor: '#ff00cc',
+            format: '{point.name} <br> {point.percentage:.1f}%',
+            style: {
+                  textOutline: false
+              }
           }
         }
       },
@@ -57,21 +64,25 @@ $(function() {
         "data": [{
             "name": "Brown",
             "y": catTraits.brown + dogTraits.brown,
+            "color": "#bbbcc3",
             "drilldown": "brown"
           },
           {
             "name": "Black",
             "y": catTraits.black + dogTraits.black,
+            "color": "#d2d2d7",
             "drilldown": "black"
           },
           {
             "name": "White",
             "y": catTraits.white + dogTraits.white,
+            "color": "#e8e8eb",
             "drilldown": "white"
           },
           {
             "name": "Yellow",
             "y": catTraits.yellow + dogTraits.yellow,
+            "color": "#fff",
             "drilldown": "yellow"
           }
         ]
