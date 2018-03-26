@@ -9,7 +9,7 @@ $(function() {
 
     const dogTraits = {},
         catTraits = {};
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < data.length; i++) {
 
       if (data[i].type === "dog") {
         if (dogTraits[data[i].fur_type] === undefined) {

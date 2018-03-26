@@ -48,8 +48,7 @@ function updateType() {
       console.log("updated", id);
     });
 
-
-// functionality to update chart when table is updated
+    // functionality to update chart when table is updated
     // var s1 = mainChart.get('dogs');
     // var points = s1.data;
     // var firstPoint = points[0];
@@ -80,7 +79,7 @@ const menuClick = () => {
 
     if (!min && !max) {
       min = 0;
-      max = 25;
+      max = data.length;
     }
 
     $("#animal-table > tbody").html("");
@@ -113,7 +112,6 @@ const menuClick = () => {
         aniEmoji = '&#x1F42F';
       }
 
-
       $("#animal-table > tbody").append(`<tr>
 			<td>
 			<input data-id=${id} data-type=${type} type="checkbox" name="checkbox" value="checkbox">
@@ -131,10 +129,9 @@ const menuClick = () => {
       numRows = $("#animal-table tr").length;
     }
     dataAll = dataDogs.concat(dataCats);
-    console.log(dataAll);
   }
 
-// re renders the table after zoom
+  // re renders the table after zoom
   const renderTable = (min, max) => {
     $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
       createTable(data, min, max);
@@ -144,7 +141,7 @@ const menuClick = () => {
   // create initial chart and table
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
 
-    createTable(data, 0, 25);
+    createTable(data, 0, data.length);
 
     mainChart = Highcharts.chart('chart', {
       chart: {
@@ -240,14 +237,13 @@ const menuClick = () => {
           turboThreshold: 3000,
           data: dataCats
         },
-        {
-          id: 'all',
-          name: 'All',
-          color: '#44989e',
-          turboThreshold: 3000,
-          data: dataAll
-        }
-
+        // {
+        //   id: 'all',
+        //   name: 'All',
+        //   color: '#44989e',
+        //   turboThreshold: 3000,
+        //   data: dataAll
+        // }
       ]
     });
   }).fail(function(error) {

@@ -1,4 +1,4 @@
-
+//
 // // updates animal type on button click
 // function updateType() {
 //   $('input[type=checkbox]:checked').each(function() {
