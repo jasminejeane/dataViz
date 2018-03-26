@@ -9,15 +9,20 @@ $(document).ready(function() {
     rowCount = (rowCount + 5 <= numRows)
       ? rowCount + 5
       : numRows;
+
+          // x = (x + 5 <= numRows)
+          //   ? x + 5
+          //   : numRows;
     $('#animal-table tr:lt(' + rowCount + ')').show();
   });
 
   $('#showLess').click(function() {
     rowCount = (rowCount - 5 < 0)
-      ? 4
+      ? numRows - 4
       : rowCount - 5;
     $('#animal-table tr').not(':lt(' + rowCount+ ')').hide();
   });
+
 });
 
 // updates animal type on button click
@@ -121,12 +126,12 @@ const menuClick = () => {
 			<td>${color}</td>
 			<td>${fur_type} </td>
 			<td>${number_of_legs}</td>
-			</tr>`);
-    }
+    </tr>`);
 
     numRows = $("#animal-table tr").length;
     // console.log(numRows);
   }
+}
 
   const renderTable = (min, max) => {
     $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {

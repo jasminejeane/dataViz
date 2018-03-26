@@ -11,6 +11,11 @@ body{
 font-family: 'Abel', sans-serif;
 }
 
+button{
+  -webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
 .page-icons{
   margin-top: 15px;
   font-size: 45px;
@@ -30,11 +35,15 @@ border: 2px solid #d53d5e;
   color: #fff;
   text-decoration: none;
 }
-.highcharts-contextbutton, 
+.highcharts-contextbutton,
 .highcharts-credits{
 display: none;
 }
 
 .highcharts-background{
   color: transparent;
+}
+
+.wrapper{
+  margin-bottom: 45px;
 }
