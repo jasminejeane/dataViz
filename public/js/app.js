@@ -48,6 +48,8 @@ function updateType() {
       console.log("updated", id);
     });
 
+
+// functionality to update chart when table is updated
     // var s1 = mainChart.get('dogs');
     // var points = s1.data;
     // var firstPoint = points[0];
@@ -71,6 +73,7 @@ const menuClick = () => {
   const dataDogs = [],
     dataCats = [],
     serieName = [];
+  let dataAll = [];
 
   // create Characteristics Table
   const createTable = (data, min, max) => {
@@ -110,6 +113,7 @@ const menuClick = () => {
         aniEmoji = '&#x1F42F';
       }
 
+
       $("#animal-table > tbody").append(`<tr>
 			<td>
 			<input data-id=${id} data-type=${type} type="checkbox" name="checkbox" value="checkbox">
@@ -126,8 +130,11 @@ const menuClick = () => {
 
       numRows = $("#animal-table tr").length;
     }
+    dataAll = dataDogs.concat(dataCats);
+    console.log(dataAll);
   }
 
+// re renders the table after zoom
   const renderTable = (min, max) => {
     $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
       createTable(data, min, max);
@@ -232,6 +239,13 @@ const menuClick = () => {
           color: '#ff00cc',
           turboThreshold: 3000,
           data: dataCats
+        },
+        {
+          id: 'all',
+          name: 'All',
+          color: '#44989e',
+          turboThreshold: 3000,
+          data: dataAll
         }
 
       ]
