@@ -10,7 +10,8 @@ $(document).ready(function() {
   // }else {
   // 	$('#showLess').show();
   // }
-  let x = 5;
+  let x = 3;
+  $('#animal-table tr:lt(' + 25 + ')').show();
 
   $('#showMore').click(function() {
     // console.log(numRows);
@@ -20,10 +21,12 @@ $(document).ready(function() {
     $('#animal-table tr:lt(' + x + ')').show();
   });
 
+
   $('#showLess').click(function() {
     x = (x - 5 < 0)
-      ? 10
+      ? 4
       : x - 5;
+      console.log('less', x);
     $('#animal-table tr').not(':lt(' + x + ')').hide();
   });
 });
