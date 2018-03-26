@@ -90,5 +90,5 @@ $(function() {
       }
     }); // end of claws char
 
-  });
+  }).fail(function(error) { console.error(error.responseJSON); });
 });

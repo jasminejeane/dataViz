@@ -2,17 +2,7 @@ let numRows;
 var mainChart;
 $(document).ready(function() {
 
-  // show more show less for length of rows
-  // limit the number of inital rows that show
-
-  // if(numRows <= 10){
-  // 	$('#showLess').hide();
-  // }else {
-  // 	$('#showLess').show();
-  // }
   let x = 3;
-  $('#animal-table tr:lt(' + 25 + ')').show();
-
   $('#showMore').click(function() {
     // console.log(numRows);
     x = (x + 5 <= numRows)
@@ -56,7 +46,7 @@ function updateType() {
       }
     }).then(function() {
       console.log("updated", id);
-    });
+    }).fail(function(error) { console.error(error.responseJSON); });
 
     // var s1 = mainChart.get('dogs');
     // var points = s1.data;
@@ -142,7 +132,7 @@ const menuClick = () => {
   const renderTable = (min, max) => {
     $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
       createTable(data, min, max);
-    });
+    }).fail(function(error) { console.error(error.responseJSON); });
   }
 
   // create initial chart and table
@@ -243,4 +233,4 @@ const menuClick = () => {
 
       ]
     });
-  });
+  }).fail(function(error) { console.error(error.responseJSON); });

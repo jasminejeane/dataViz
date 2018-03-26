@@ -104,5 +104,5 @@ $(function() {
         ]
       }
     });
-  });
+  }).fail(function(error) { console.error(error.responseJSON); });
 });
