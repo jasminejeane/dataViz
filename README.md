@@ -1,13 +1,12 @@
 # CatzNDogz
 
 ### Dependencies
- * bootstrap
- * jquery
- * highcharts
- * express
- * request
- * body-parser
- * font-awesome
+* "babel-preset-es2015": "^6.24.1"
+* "babel-preset-stage-2": "^6.24.1"
+* * "body-parser": "^1.15.0"
+* "express": "^4.13.4"
+* "request": "^2.85.0"
+* "require": "^2.4.20"
 
 ### Setup
 
@@ -21,7 +20,6 @@
 `curl localhost:5000/health-check`  
 
 * For FrontEnd
-
 
   * Make sure you have `node` and `nvm` installed
 
@@ -42,6 +40,10 @@
     `babel-preset-stage-2`
 
 * From this CatzNDogz Front in Folder
-  * run `npm install`
+  * run `npm install` (no need to download any packages npm install will take care of it from package.json)
   * run `node server`
   * view on port 8080
+
+
+### Testing
+    * run `karma start`

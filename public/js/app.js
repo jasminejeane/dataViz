@@ -5,14 +5,10 @@ $(document).ready(function() {
   let rowCount = 3;
 
   $('#showMore').click(function() {
-    // console.log(numRows);
     rowCount = (rowCount + 5 <= numRows)
       ? rowCount + 5
       : numRows;
 
-          // x = (x + 5 <= numRows)
-          //   ? x + 5
-          //   : numRows;
     $('#animal-table tr:lt(' + rowCount + ')').show();
   });
 
