@@ -1,3 +1,48 @@
+export const drilldown = {
+  drilldown: function() {
+    var catPts = mainChart.series[0].points;
+    var dogPts = mainChart.series[1].points;
+    var combinedPts = catPts.concat(dogPts);
+    var dataChar1 = [],
+        dataChar2 = [];
+
+    combinedPts.forEach(function(pt){
+
+      const id = pt.x;
+       const name = pt.nameVal;
+       const claws = pt.clawsVal;
+       const numLegs = pt.y;
+
+      let serieData = {
+        x: id,
+        y: numLegs,
+        nameVal: name,
+        clawsVal: claws
+      }
+      if (pt.clawsVal === "dull") {
+        dataChar1.push(serieData);
+      } else if (pt.clawsVal === "sharp") {
+        dataChar2.push(serieData);
+      }
+    })
+
+    console.log("data", this.ddDupes[0]);
+    let drillChar;
+
+    if(this.ddDupes[0] === "dull"){
+      drillChar = dataChar1;
+    }else if(this.ddDupes[0] === "sharp"){
+      drillChar = dataChar2;
+    }
+
+    mainChart.series[0].update({
+      data: drillChar
+    });
+
+  }
+}
+
+
 export const chart = {
   type: 'pie',
   margin: [
@@ -6,58 +51,7 @@ export const chart = {
   plotBackgroundColor: '#1f2237',
   plotBorderWidth: null,
   plotShadow: true,
-  events: {
-    drilldown: function() {
-      var catPts = mainChart.series[0].points;
-      var dogPts = mainChart.series[1].points;
-      var combinedPts = catPts.concat(dogPts);
-      var dataChar1 = [],
-          dataChar2 = [];
-
-      combinedPts.forEach(function(pt){
-        console.log(pt);
-
-
-        const id = pt.x;
-         const name = pt.nameVal;
-         const claws = pt.clawsVal;
-         const numLegs = pt.y;
-        // const {
-        //   id,
-        //   type,
-        //   name,
-        //   body_size,
-        //   claws,
-        //   color,
-        //   fur_type,
-        //   number_of_legs
-        // } = pt;
-
-        let serieData = {
-          x: id,
-          y: numLegs,
-          nameVal: name,
-          clawsVal: claws
-        }
-
-
-
-        if (pt.clawsVal === "dull") {
-          dataChar1.push(serieData);
-        } else if (pt.clawsVal === "sharp") {
-          dataChar2.push(serieData);
-        }
-      })
-console.log("1, 2", dataChar1, dataChar2);
-
-      // console.log("data", this);
-      // var catPts = mainChart.series[0].points;
-      // var dogPts = mainChart.series[1].points;
-      // var combinedPts = catPts.concat(dogPts);
-      // console.log(catPts.concat(dogPts));
-// console.log(mainChart.series[0]);
-    }
-  }
+  // events: drilldown
 };
 
 export const subTitleStlye = {

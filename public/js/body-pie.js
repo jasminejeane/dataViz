@@ -1,4 +1,4 @@
-import {chart, subTitleStlye, plotOptions, toolTip, dataHash } from "./utils/pies.js";
+import {chart, subTitleStlye, plotOptions, toolTip, dataHash } from "../utils/pies.js";
 
 $(function() {
   $.ajax({

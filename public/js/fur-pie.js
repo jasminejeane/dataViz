@@ -1,3 +1,5 @@
+import {chart, subTitleStlye, plotOptions, toolTip, dataHash } from "../utils/pies.js";
+
 $(function() {
 
   $.ajax({
@@ -25,46 +27,16 @@ $(function() {
       }
     }
 
+
+
     Highcharts.chart('furType', {
-      chart: {
-        type: 'pie',
-        margin: [0, 0, 0, 0],
-        plotBackgroundColor: '#1f2237',
-        plotBorderWidth: null,
-        plotShadow: true
-      },
+      chart: chart,
       subtitle: {
         text: 'FUR TYPE',
-        style: {
-          color: '#fff',
-         fontWeight: 'bold',
-         fontSize: 16
-     }
+        style: subTitleStlye
       },
-      plotOptions: {
-        // pie: {
-        //   borderColor: '#ff00cc'
-        // },
-        series: {
-          dataLabels: {
-            enabled: true,
-            crop: false,
-            overflow: "none",
-            connectorWidth: 0,
-            distance: -30,
-            format: '{point.name} <br> {point.percentage:.1f}%',
-            style: {
-                  textOutline: false
-              }
-          }
-        }
-      },
-
-      tooltip: {
-        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.percentage:.1f}%</b> of total<br/>'
-      },
-
+      plotOptions: plotOptions,
+      tooltip: toolTip,
       "series": [{
         "name": "Fur Type",
         "colorByPoint": true,
