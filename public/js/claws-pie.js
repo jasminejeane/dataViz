@@ -64,7 +64,7 @@ $(function() {
             "data": [
               [
                 "dog",
-                dogTraits.sharp
+                dogTraits.sharp,
               ],
               [
                 "cat",
