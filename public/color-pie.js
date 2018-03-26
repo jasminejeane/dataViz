@@ -9,7 +9,7 @@ $(function() {
 // (type, i think hash name doesn't need to change)
     const dogTraits = {},
         catTraits = {};
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < 25; i++) {
 
       if (data[i].type === "dog") {
         if (dogTraits[data[i].color] === undefined) {
@@ -38,7 +38,7 @@ $(function() {
       tooltip: toolTip,
 
       "series": [{
-        "name": "Browsers",
+        "name": "Color",
         "colorByPoint": true,
         "data": [{
             "name": "Brown",

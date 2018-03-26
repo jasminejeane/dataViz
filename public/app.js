@@ -105,7 +105,8 @@ const menuClick = () => {
       let serieData = {
         x: id,
         y: number_of_legs,
-        nameVal: name
+        nameVal: name,
+        clawsVal: claws
       }
 
       if (type === "dog") {

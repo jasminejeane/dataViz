@@ -10,7 +10,7 @@ $(function() {
 
     const dogTraits = {},
         catTraits = {};
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < 25; i++) {
 
       if (data[i].type === "dog") {
         if (dogTraits[data[i].claws] === undefined) {
@@ -40,7 +40,7 @@ $(function() {
       tooltip: toolTip,
 
       "series": [{
-        "name": "Browsers",
+        "name": "Claws",
         "colorByPoint": true,
         "data": [{
             "name": "Sharp",

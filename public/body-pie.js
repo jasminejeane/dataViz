@@ -8,7 +8,7 @@ $(function() {
 
     const dogBody = {},
         catBody = {};
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < 25; i++) {
 
       if (data[i].type === "dog") {
         if (dogBody[data[i].body_size] === undefined) {
@@ -35,7 +35,7 @@ $(function() {
       plotOptions: plotOptions,
       tooltip: toolTip,
       "series": [{
-        "name": "Browsers",
+        "name": "Body Type",
         "colorByPoint": true,
         "data": [{
             "name": "Large",
@@ -52,6 +52,7 @@ $(function() {
           {
             "name": "Small",
             "y": catBody.small + dogBody.small,
+            color: "#81bb6b",
             "drilldown": "small"
           }
         ]
