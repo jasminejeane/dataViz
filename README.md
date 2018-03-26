@@ -43,7 +43,3 @@
   * run `npm install` (no need to download any packages npm install will take care of it from package.json)
   * run `bnode server`
   * view on port 8080
-
-
-### Testing
-     run `karma start`
