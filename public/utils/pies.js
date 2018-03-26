@@ -1,4 +1,4 @@
-export const drilldown = {
+export const drilldownFunc = {
   drilldown: function() {
 
     let combinedPts = catPts.concat(dogPts),
@@ -41,6 +41,14 @@ export const drilldown = {
   }
 }
 
+export const drillUpBtn = {
+  position: {
+    //align: 'left',
+    x: 0,
+    y: 50,
+    verticalAlign: 'top'
+  }
+}
 
 export const chart = {
   type: 'pie',
@@ -101,7 +109,6 @@ export const dataHash = (data, trait) => {
      }
    }
 
-console.log("data l", data.length);
   return {dogTraits, catTraits}
 }
 }

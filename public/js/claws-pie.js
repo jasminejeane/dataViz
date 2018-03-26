@@ -1,4 +1,4 @@
-import {chart, subTitleStlye, plotOptions, toolTip } from "../utils/pies.js";
+import {chart, subTitleStlye, plotOptions, toolTip, drillUpBtn } from "../utils/pies.js";
 
 
 $(function() {
@@ -57,7 +57,8 @@ $(function() {
         ]
       }],
       "drilldown": {
-        "series": [{
+        drillUpButton: drillUpBtn,
+    "series": [{
             "name": "Sharp",
             "id": "sharp",
             "data": [
@@ -87,7 +88,8 @@ $(function() {
             ]
           }
         ]
-      }
+      // }
+    }
     }); // end of claws char
 
   }).fail(function(error) { console.error(error); });

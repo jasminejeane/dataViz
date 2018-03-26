@@ -1,4 +1,4 @@
-import {chart, subTitleStlye, plotOptions, toolTip, dataHash } from "../utils/pies.js";
+import {chart, subTitleStlye, plotOptions, toolTip, dataHash, drillUpBtn } from "../utils/pies.js";
 
 $(function() {
 
@@ -67,6 +67,7 @@ $(function() {
         ]
       }],
       "drilldown": {
+        drillUpButton: drillUpBtn,
         "series": [{
             "name": "Brown",
             "id": "brown",
