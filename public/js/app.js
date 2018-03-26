@@ -125,7 +125,6 @@ const menuClick = () => {
     </tr>`);
 
       numRows = $("#animal-table tr").length;
-      // console.log(numRows);
     }
   }
 

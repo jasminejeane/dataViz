@@ -2,15 +2,15 @@ export const drilldownFunc = {
   drilldown: function() {
 
     let combinedPts = catPts.concat(dogPts),
-     dataChar1 = [],
-        dataChar2 = [];
+      dataChar1 = [],
+      dataChar2 = [];
 
-    combinedPts.forEach(function(pt){
+    combinedPts.forEach(function(pt) {
 
       const id = pt.x;
-       const name = pt.nameVal;
-       const claws = pt.clawsVal;
-       const numLegs = pt.y;
+      const name = pt.nameVal;
+      const claws = pt.clawsVal;
+      const numLegs = pt.y;
 
       let serieData = {
         x: id,
@@ -28,15 +28,13 @@ export const drilldownFunc = {
     console.log("data", this.ddDupes[0]);
     let drillChar;
 
-    if(this.ddDupes[0] === "dull"){
+    if (this.ddDupes[0] === "dull") {
       drillChar = dataChar1;
-    }else if(this.ddDupes[0] === "sharp"){
+    } else if (this.ddDupes[0] === "sharp") {
       drillChar = dataChar2;
     }
 
-    mainChart.series[0].update({
-      data: drillChar
-    });
+    mainChart.series[0].update({data: drillChar});
 
   }
 }
@@ -97,20 +95,20 @@ export const dataHash = (data, trait) => {
   for (let i = 0; i < data.length; i++) {
 
     if (data[i].type === "dog") {
-     if (dogTraits[data[i][trait]] === undefined) {
-       dogTraits[data[i][trait]] = 1;
-     } else if (dogTraits[data[i][trait]]) {
-       dogTraits[data[i][trait]]++;
-     }
-   }
-   if (data[i].type === "cat") {
-     if (catTraits[data[i][trait]] === undefined) {
-       catTraits[data[i][trait]] = 1;
-     } else if (catTraits[data[i][trait]]) {
-       catTraits[data[i][trait]]++;
-     }
-   }
+      if (dogTraits[data[i][trait]] === undefined) {
+        dogTraits[data[i][trait]] = 1;
+      } else if (dogTraits[data[i][trait]]) {
+        dogTraits[data[i][trait]]++;
+      }
+    }
+    if (data[i].type === "cat") {
+      if (catTraits[data[i][trait]] === undefined) {
+        catTraits[data[i][trait]] = 1;
+      } else if (catTraits[data[i][trait]]) {
+        catTraits[data[i][trait]]++;
+      }
+    }
 
-  return {dogTraits, catTraits}
-}
+    return {dogTraits, catTraits}
+  }
 }

@@ -38,7 +38,7 @@ app.put("/animal/:id", function(req, res) {
     console.error(error);
     if (!error && response.statusCode === 200) {
 
-      // res.json(JSON.parse(body));
+      res.json(JSON.parse(body));
     }
   });
 
