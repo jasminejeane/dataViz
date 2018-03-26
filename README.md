@@ -45,8 +45,3 @@
   * run `npm install`
   * run `node server`
   * view on port 8080
-
-
-### Current Features
-  * Zoom In on chart
-  * Syncs with Characteristics in Table

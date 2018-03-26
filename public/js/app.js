@@ -2,6 +2,7 @@ let numRows;
 var mainChart;
 $(document).ready(function() {
 
+// describe x
   let x = 3;
   $('#showMore').click(function() {
     // console.log(numRows);
@@ -20,7 +21,7 @@ $(document).ready(function() {
     $('#animal-table tr').not(':lt(' + x + ')').hide();
   });
 });
-
+ // keep state so that you know what page your are on
 // updates animal type on button click
 function updateType() {
   $('input[type=checkbox]:checked').each(function() {
@@ -48,17 +49,19 @@ function updateType() {
       console.log("updated", id);
     }).fail(function(error) { console.error(error.responseJSON); });
 
-    // var s1 = mainChart.get('dogs');
-    // var points = s1.data;
-    // var firstPoint = points[0];
-    // firstPoint.remove();
-    // s1.addPoint({
-    //   name: 'dog',
-    //    y: 4,
-    //    x: 1
-    //  });
-    // console.log("dogs point", points);
-    // mainChart.redraw();
+    var s1 = mainChart.get('dogs');
+    var points = s1.data;
+    var firstPoint = points[0];
+    firstPoint.remove();
+
+    // update
+    s1.addPoint({
+      name: 'dog',
+       y: 4,
+       x: 1
+     });
+    console.log("dogs point", points);
+    mainChart.redraw();
     // https://github.com/highcharts/highcharts/issues/5318
     // https://jsfiddle.net/tpu0fwpe/3/
   });
@@ -140,7 +143,7 @@ const menuClick = () => {
 
     createTable(data, 0, 25);
 
-    mainChart = Highcharts.chart('container', {
+    mainChart = Highcharts.chart('chart', {
       chart: {
         type: 'scatter',
         zoomType: 'xy',

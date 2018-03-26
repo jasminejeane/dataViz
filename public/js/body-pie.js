@@ -6,6 +6,8 @@ $(function() {
     method: "GET"
   }).then(function(data) {
 
+
+
     const dogBody = {},
         catBody = {};
     for (let i = 0; i < 25; i++) {

@@ -1,9 +1,8 @@
 export const drilldown = {
   drilldown: function() {
-    var catPts = mainChart.series[0].points;
-    var dogPts = mainChart.series[1].points;
-    var combinedPts = catPts.concat(dogPts);
-    var dataChar1 = [],
+
+    let combinedPts = catPts.concat(dogPts),
+     dataChar1 = [],
         dataChar2 = [];
 
     combinedPts.forEach(function(pt){
@@ -83,25 +82,26 @@ export const toolTip = {
 
 export const dataHash = (data, trait) => {
 
-  const dogTraits = {},
+  let dogTraits = {},
     catTraits = {};
   for (let i = 0; i < data.length; i++) {
 
-    if (pt.type === "dog") {
-      if (dogTraits[pt[trait]] === undefined) {
-        dogTraits[pt[trait]] = 1;
-      } else if (dogTraits[pt[trait]]) {
-        dogTraits[pt[trait]]++;
-      }
-    }
-    if (pt.type === "cat") {
-      if (catTraits[pt[trait]] === undefined) {
-        catTraits[pt[trait]] = 1;
-      } else if (catTraits[pt[trait]]) {
-        catTraits[pt[trait]]++;
-      }
-    }
-  }
+    if (data[i].type === "dog") {
+     if (dogTraits[data[i][trait]] === undefined) {
+       dogTraits[data[i][trait]] = 1;
+     } else if (dogTraits[data[i][trait]]) {
+       dogTraits[data[i][trait]]++;
+     }
+   }
+   if (data[i].type === "cat") {
+     if (catTraits[data[i][trait]] === undefined) {
+       catTraits[data[i][trait]] = 1;
+     } else if (catTraits[data[i][trait]]) {
+       catTraits[data[i][trait]]++;
+     }
+   }
+
 
   return {dogTraits, catTraits}
+}
 }

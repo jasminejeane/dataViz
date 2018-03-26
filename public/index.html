@@ -27,7 +27,6 @@
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/data.js"></script>
   <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-  <!-- <script src="app.js"></script> -->
   <script type="module" src="./utils/pies.js"></script>
   <script type="module" src="js/claws-pie.js"></script>
   <script type="module" src="js/body-pie.js"></script>
@@ -52,8 +51,8 @@
 <li onclick="menuClick()" class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="oi oi-menu"></span></a></li>
 </ul>
 <ul class="sidebar-nav" id="sidebar">
-<li><a href="#"><span class="sub_icon"></span>Chart</a></li>
-<li><a href="#"><span class="sub_icon"></span>Graph</a></li>
+<li><a href="#chart"><span class="sub_icon"></span>Chart</a></li>
+<li><a href="#table"><span class="sub_icon"></span>Table</a></li>
 </ul>
 </div>
 
@@ -66,8 +65,8 @@
 </div>
 <div class="row headline">
   <h2 class="col-4">Animals Data</h2>
-  <a id="#graph" class="col-2" href="#">Graph</a>
-  <a id="#table" class="col-2" href="#">Table</a>
+  <a  class="col-2" href="#chart">Graph</a>
+  <a  class="col-2" href="#table">Table</a>
   <p class="offset-4"></p>
 </div>
 
@@ -95,13 +94,12 @@
     </div>
 
 
-    <div id="container">
+    <div id="chart">
     </div>
 
 
-<span class="oi oi-menu"></span>
     <!-- Update Animal Type Button and Table title -->
-    <div class="row table-header">
+    <div id="table" class="row table-header">
       <div class="col-3">
         <button id="update" class="update" type="button" name="button" onclick="updateType()">Update Type</button>
 
