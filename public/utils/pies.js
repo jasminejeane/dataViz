@@ -75,9 +75,11 @@ export const plotOptions = {
       overflow: "none",
       connectorWidth: 0,
       distance: -45,
-      format: '{point.name} <br> {point.percentage:.1f}%',
+      format: '{point.name} <br> {point.percentage:.0f}%',
+
       style: {
-        textOutline: false
+        textOutline: false,
+        fontSize: 13
       }
     }
   }
@@ -85,7 +87,7 @@ export const plotOptions = {
 
 export const toolTip = {
   headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-  pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.percentage:.1f}%</b> of total<br/>'
+  pointFormat: '<span style="color:{point.color}">{point.name}</span>:<br> <b>{point.percentage:.0f}%</b> of total<br/>'
 }
 
 export const dataHash = (data, trait) => {
