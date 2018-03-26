@@ -1,4 +1,4 @@
-import {chart, subTitleStlye, plotOptions, toolTip, dataHash } from "../utils/pies.js";
+import {chart, subTitleStlye, plotOptions, toolTip } from "../utils/pies.js";
 
 
 $(function() {
@@ -7,13 +7,26 @@ $(function() {
     url: "http://localhost:8080/animals",
     method: "GET"
   }).then(function(data) {
-    let dogTraits = {},
-      catTraits = {};
-console.log(dataHash);
 
-//     dataHash(data, 'claws');
-//
-// console.log(dogTraits);
+    const dogTraits = {},
+        catTraits = {};
+    for (let i = 0; i < 25; i++) {
+
+      if (data[i].type === "dog") {
+        if (dogTraits[data[i].claws] === undefined) {
+          dogTraits[data[i].claws] = 1;
+        } else if (dogTraits[data[i].claws]) {
+          dogTraits[data[i].claws]++;
+        }
+      }
+      if (data[i].type === "cat") {
+        if (catTraits[data[i].claws] === undefined) {
+          catTraits[data[i].claws] = 1;
+        } else if (catTraits[data[i].claws]) {
+          catTraits[data[i].claws]++;
+        }
+      }
+    }
 
 
     Highcharts.chart('claws', {

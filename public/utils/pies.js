@@ -101,7 +101,7 @@ export const dataHash = (data, trait) => {
      }
    }
 
-
+console.log("data l", data.length);
   return {dogTraits, catTraits}
 }
 }

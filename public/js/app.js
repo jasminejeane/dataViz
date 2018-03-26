@@ -1,12 +1,9 @@
-const dataDogs = [],
-  dataCats = [],
-  serieName = [];
 let numRows;
 let mainChart;
 $(document).ready(function() {
 
-// describe x
   let rowCount = 3;
+
   $('#showMore').click(function() {
     // console.log(numRows);
     rowCount = (rowCount + 5 <= numRows)
@@ -15,16 +12,14 @@ $(document).ready(function() {
     $('#animal-table tr:lt(' + rowCount + ')').show();
   });
 
-
   $('#showLess').click(function() {
     rowCount = (rowCount - 5 < 0)
       ? 4
       : rowCount - 5;
-      console.log('less', rowCount);
-    $('#animal-table tr').not(':lt(' + rowCount + ')').hide();
+    $('#animal-table tr').not(':lt(' + rowCount+ ')').hide();
   });
 });
- // keep state so that you know what page your are on
+
 // updates animal type on button click
 function updateType() {
   $('input[type=checkbox]:checked').each(function() {
@@ -50,21 +45,19 @@ function updateType() {
       }
     }).then(function() {
       console.log("updated", id);
-    }).fail(function(error) { console.error(error); });
+    });
 
-    var s1 = mainChart.get('dogs');
-    var points = s1.data;
-    var firstPoint = points[0];
-    firstPoint.remove();
-
-    // update
-    s1.addPoint({
-      name: 'dog',
-       y: 4,
-       x: 1
-     });
-    console.log("dogs point", points);
-    mainChart.redraw();
+    // var s1 = mainChart.get('dogs');
+    // var points = s1.data;
+    // var firstPoint = points[0];
+    // firstPoint.remove();
+    // s1.addPoint({
+    //   name: 'dog',
+    //    y: 4,
+    //    x: 1
+    //  });
+    // console.log("dogs point", points);
+    // mainChart.redraw();
     // https://github.com/highcharts/highcharts/issues/5318
     // https://jsfiddle.net/tpu0fwpe/3/
   });
@@ -74,9 +67,12 @@ const menuClick = () => {
     $("#wrapper").toggleClass("active");
   }
 
+  const dataDogs = [],
+    dataCats = [],
+    serieName = [];
 
   // create Characteristics Table
-  export const createTable = (data, min, max) => {
+  const createTable = (data, min, max) => {
 
     if (!min && !max) {
       min = 0;
@@ -129,12 +125,13 @@ const menuClick = () => {
     }
 
     numRows = $("#animal-table tr").length;
+    // console.log(numRows);
   }
 
   const renderTable = (min, max) => {
     $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
       createTable(data, min, max);
-    }).fail(function(error) { console.error(error.responseJSON); });
+    });
   }
 
   // create initial chart and table
