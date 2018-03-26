@@ -21,18 +21,19 @@
   <link rel="stylesheet" href="styles/menu.css">
 
 
-<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
 
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/data.js"></script>
   <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+  <script type="module" src="js/main-chart.js"></script>
   <script type="module" src="./utils/pies.js"></script>
   <script type="module" src="js/claws-pie.js"></script>
   <script type="module" src="js/body-pie.js"></script>
   <script type="module" src="js/color-pie.js"></script>
   <script type="module" src="js/fur-pie.js"></script>
-  <script  src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 
 
 
@@ -46,98 +47,98 @@
 
 
     <!-- Sidebar -->
-<div id="sidebar-wrapper">
-<ul id="sidebar_menu" class="sidebar-nav">
-<li onclick="menuClick()" class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="oi oi-menu"></span></a></li>
-</ul>
-<ul class="sidebar-nav" id="sidebar">
-<li><a href="#chart"><span class="sub_icon"></span>Chart</a></li>
-<li><a href="#table"><span class="sub_icon"></span>Table</a></li>
-</ul>
-</div>
+    <div id="sidebar-wrapper">
+      <ul id="sidebar_menu" class="sidebar-nav">
+        <li onclick="menuClick()" class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="oi oi-menu"></span></a></li>
+      </ul>
+      <ul class="sidebar-nav" id="sidebar">
+        <li><a href="#chart"><span class="sub_icon"></span>Chart</a></li>
+        <li><a href="#table"><span class="sub_icon"></span>Table</a></li>
+      </ul>
+    </div>
 
-<div class="wrapper">
+    <div class="wrapper">
 
-<div class="row">
-  <div class="col-12">
-    <span class="page-icons text-right">&#x1F436 &#x1F42F;</span>
-  </div>
-</div>
-<div class="row headline">
-  <h2 class="col-4">Animals Data</h2>
-  <a  class="col-2" href="#chart">Graph</a>
-  <a  class="col-2" href="#table">Table</a>
-  <p class="offset-4"></p>
-</div>
+      <div class="row">
+        <div class="col-12">
+          <span class="page-icons text-right">&#x1F436 &#x1F42F;</span>
+        </div>
+      </div>
+      <div class="row headline">
+        <h2 class="col-4">Animals Data</h2>
+        <a class="col-2" href="#chart">Graph</a>
+        <a class="col-2" href="#table">Table</a>
+        <p class="offset-4"></p>
+      </div>
 
-    <div class="row pie-charts">
-      <div class="col-3">
-        <div id="claws">
+      <div class="row pie-charts">
+        <div class="col-3">
+          <div id="claws">
+
+          </div>
+        </div>
+        <div class="col-3">
+          <div id="bodySize">
+
+          </div>
+        </div>
+        <div class="col-3">
+          <div id="color">
+
+          </div>
+        </div>
+        <div class="col-3">
+          <div id="furType">
+
+          </div>
+        </div>
+      </div>
+
+
+      <div id="chart">
+      </div>
+
+
+      <!-- Update Animal Type Button and Table title -->
+      <div id="table" class="row table-header">
+        <div class="col-3">
+          <button id="update" class="update" type="button" name="button" onclick="updateType()">Update Type</button>
+
+        </div>
+        <div class="col-9">
+          <h3 class="table-title">Characteristics</h3>
+        </div>
+      </div>
+
+      <!-- Table Begins -->
+      <div class="row">
+        <div class="col-lg-12">
+
+          <table class="table table-hover" id='animal-table'>
+            <thead>
+              <tr>
+                <!-- dynamicall add th -->
+                <th>Select</th>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Body</th>
+                <th>Claws</th>
+                <th>Color</th>
+                <th>Fur Type</th>
+                <th># of Legs</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+          <button id="showMore" type="button" name="button">Show More</button>
+          <button id="showLess" type="button" name="button">Show Less</button>
 
         </div>
       </div>
-      <div class="col-3">
-        <div id="bodySize">
-
-        </div>
-      </div>
-      <div class="col-3">
-      <div id="color">
-
-      </div>
-      </div>
-      <div class="col-3">
-        <div id="furType">
-
-        </div>
-      </div>
     </div>
-
-
-    <div id="chart">
-    </div>
-
-
-    <!-- Update Animal Type Button and Table title -->
-    <div id="table" class="row table-header">
-      <div class="col-3">
-        <button id="update" class="update" type="button" name="button" onclick="updateType()">Update Type</button>
-
-      </div>
-      <div class="col-9">
-        <h3 class="table-title">Characteristics</h3>
-      </div>
-    </div>
-
-    <!-- Table Begins -->
-    <div class="row">
-      <div class="col-lg-12">
-
-        <table class="table table-hover" id='animal-table'>
-          <thead>
-            <tr>
-              <!-- dynamicall add th -->
-              <th>Select</th>
-              <th>ID</th>
-              <th>Type</th>
-              <th>Name</th>
-              <th>Body</th>
-              <th>Claws</th>
-              <th>Color</th>
-              <th>Fur Type</th>
-              <th># of Legs</th>
-            </tr>
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>
-        <button id="showMore" type="button" name="button">Show More</button>
-        <button id="showLess" type="button" name="button">Show Less</button>
-
-      </div>
-    </div>
-  </div>
   </div>
 
 </body>

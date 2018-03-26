@@ -127,5 +127,5 @@ $(function() {
         ]
       }
     });
-  }).fail(function(error) { console.error(error.responseJSON); });
+  }).fail(function(error) { console.error(error); });
 });

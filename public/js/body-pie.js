@@ -8,22 +8,22 @@ $(function() {
 
 
 
-    const dogBody = {},
-        catBody = {};
+    const dogTraits = {},
+        catTraits = {};
     for (let i = 0; i < 25; i++) {
 
       if (data[i].type === "dog") {
-        if (dogBody[data[i].body_size] === undefined) {
-          dogBody[data[i].body_size] = 1;
-        } else if (dogBody[data[i].body_size]) {
-          dogBody[data[i].body_size]++;
+        if (dogTraits[data[i].body_size] === undefined) {
+          dogTraits[data[i].body_size] = 1;
+        } else if (dogTraits[data[i].body_size]) {
+          dogTraits[data[i].body_size]++;
         }
       }
       if (data[i].type === "cat") {
-        if (catBody[data[i].body_size] === undefined) {
-          catBody[data[i].body_size] = 1;
-        } else if (catBody[data[i].body_size]) {
-          catBody[data[i].body_size]++;
+        if (catTraits[data[i].body_size] === undefined) {
+          catTraits[data[i].body_size] = 1;
+        } else if (catTraits[data[i].body_size]) {
+          catTraits[data[i].body_size]++;
         }
       }
     }
@@ -41,19 +41,19 @@ $(function() {
         "colorByPoint": true,
         "data": [{
             "name": "Large",
-            "y": catBody.large + dogBody.large,
+            "y": catTraits.large + dogTraits.large,
             "color": "#44989e",
             "drilldown": "large"
           },
           {
             "name": "Normal",
-            "y": catBody.normal + dogBody.normal,
+            "y": catTraits.normal + dogTraits.normal,
             "color": "#fff",
             "drilldown": "normal"
           },
           {
             "name": "Small",
-            "y": catBody.small + dogBody.small,
+            "y": catTraits.small + dogTraits.small,
             color: "#81bb6b",
             "drilldown": "small"
           }
@@ -66,11 +66,11 @@ $(function() {
             "data": [
               [
                 "dog",
-                dogBody.large
+                dogTraits.large
               ],
               [
                 "cat",
-                catBody.large
+                catTraits.large
               ],
 
             ]
@@ -81,11 +81,11 @@ $(function() {
             "data": [
               [
                 "dog",
-                dogBody.normal
+                dogTraits.normal
               ],
               [
                 "cat",
-                catBody.normal
+                catTraits.normal
               ],
             ]
           },
@@ -95,16 +95,16 @@ $(function() {
             "data": [
               [
                 "dog",
-                dogBody.small
+                dogTraits.small
               ],
               [
                 "cat",
-                catBody.small
+                catTraits.small
               ],
             ]
           }
         ]
       }
     });
-  }).fail(function(error) { console.error(error.responseJSON); });
+  }).fail(function(error) { console.error(error); });
 });

@@ -1,24 +1,27 @@
+const dataDogs = [],
+  dataCats = [],
+  serieName = [];
 let numRows;
-var mainChart;
+let mainChart;
 $(document).ready(function() {
 
 // describe x
-  let x = 3;
+  let rowCount = 3;
   $('#showMore').click(function() {
     // console.log(numRows);
-    x = (x + 5 <= numRows)
-      ? x + 5
+    rowCount = (rowCount + 5 <= numRows)
+      ? rowCount + 5
       : numRows;
-    $('#animal-table tr:lt(' + x + ')').show();
+    $('#animal-table tr:lt(' + rowCount + ')').show();
   });
 
 
   $('#showLess').click(function() {
-    x = (x - 5 < 0)
+    rowCount = (rowCount - 5 < 0)
       ? 4
-      : x - 5;
-      console.log('less', x);
-    $('#animal-table tr').not(':lt(' + x + ')').hide();
+      : rowCount - 5;
+      console.log('less', rowCount);
+    $('#animal-table tr').not(':lt(' + rowCount + ')').hide();
   });
 });
  // keep state so that you know what page your are on
@@ -47,7 +50,7 @@ function updateType() {
       }
     }).then(function() {
       console.log("updated", id);
-    }).fail(function(error) { console.error(error.responseJSON); });
+    }).fail(function(error) { console.error(error); });
 
     var s1 = mainChart.get('dogs');
     var points = s1.data;
@@ -71,12 +74,9 @@ const menuClick = () => {
     $("#wrapper").toggleClass("active");
   }
 
-  const dataDogs = [],
-    dataCats = [],
-    serieName = [];
 
   // create Characteristics Table
-  const createTable = (data, min, max) => {
+  export const createTable = (data, min, max) => {
 
     if (!min && !max) {
       min = 0;
@@ -129,7 +129,6 @@ const menuClick = () => {
     }
 
     numRows = $("#animal-table tr").length;
-    // console.log(numRows);
   }
 
   const renderTable = (min, max) => {
@@ -236,4 +235,4 @@ const menuClick = () => {
 
       ]
     });
-  }).fail(function(error) { console.error(error.responseJSON); });
+  }).fail(function(error) { console.error(error); });
