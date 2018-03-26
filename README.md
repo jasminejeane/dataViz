@@ -3,7 +3,7 @@
 ### Dependencies
 * "babel-preset-es2015": "^6.24.1"
 * "babel-preset-stage-2": "^6.24.1"
-* * "body-parser": "^1.15.0"
+*  "body-parser": "^1.15.0"
 * "express": "^4.13.4"
 * "request": "^2.85.0"
 * "require": "^2.4.20"
@@ -31,7 +31,7 @@
       This should print NPM’s version number so you’ll see something like this 5.6.0
       http://blog.teamtreehouse.com/install-node-js-npm-windows
 
-  * Instructions for node
+  * If you dont have node on your machine. Download via link below:
     * https://nodejs.org/en/download/
 
   * For ES6  Compiling
@@ -41,9 +41,9 @@
 
 * From this CatzNDogz Front in Folder
   * run `npm install` (no need to download any packages npm install will take care of it from package.json)
-  * run `node server`
+  * run `bnode server`
   * view on port 8080
 
 
 ### Testing
-    * run `karma start`
+     run `karma start`
