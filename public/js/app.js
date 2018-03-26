@@ -16,7 +16,7 @@ $(document).ready(function() {
     rowCount = (rowCount - 5 < 0)
       ? numRows - 4
       : rowCount - 5;
-    $('#animal-table tr').not(':lt(' + rowCount+ ')').hide();
+    $('#animal-table tr').not(':lt(' + rowCount + ')').hide();
   });
 
 });
@@ -124,10 +124,10 @@ const menuClick = () => {
 			<td>${number_of_legs}</td>
     </tr>`);
 
-    numRows = $("#animal-table tr").length;
-    // console.log(numRows);
+      numRows = $("#animal-table tr").length;
+      // console.log(numRows);
+    }
   }
-}
 
   const renderTable = (min, max) => {
     $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
@@ -193,7 +193,11 @@ const menuClick = () => {
       legend: {
 
         backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor),
-        borderWidth: 1
+        borderWidth: 1,
+        itemStyle: {
+          color: '#fff'
+
+        }
       },
       plotOptions: {
         scatter: {
@@ -210,7 +214,7 @@ const menuClick = () => {
 
             pointFormatter: function() {
               return `ID: <b>${this.x} </b><br>
-							Name: <b> ${this.nameVal}</b><br>`;
+							Name:<br> <b> ${this.nameVal}</b><br>`;
             }
           }
         }
@@ -233,4 +237,6 @@ const menuClick = () => {
 
       ]
     });
-  }).fail(function(error) { console.error(error); });
+  }).fail(function(error) {
+    console.error(error);
+  });
