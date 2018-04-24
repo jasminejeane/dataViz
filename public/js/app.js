@@ -79,7 +79,7 @@ const menuClick = () => {
 
     if (!min && !max) {
       min = 0;
-      max = data.length;
+      max = 50;
     }
 
     $("#animal-table > tbody").html("");
@@ -141,7 +141,7 @@ const menuClick = () => {
   // create initial chart and table
   $.ajax({url: "http://localhost:8080/animals", method: "GET"}).then(function(data) {
 
-    createTable(data, 0, data.length);
+    createTable(data, 0, 50);
 
     mainChart = Highcharts.chart('chart', {
       chart: {

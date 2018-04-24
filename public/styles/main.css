@@ -35,7 +35,7 @@ border: 2px solid #d53d5e;
   color: #fff;
   text-decoration: none;
 }
-.highcharts-contextbutton,
+/* .highcharts-contextbutton, */
 .highcharts-credits{
 display: none;
 }
